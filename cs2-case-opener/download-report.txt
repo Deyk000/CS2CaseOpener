@@ -1,0 +1,8 @@
+CS2 Image Download Report
+Tracked:    88
+Downloaded: 55
+Skipped:    33
+Failed:     0
+Retries:    55
+
+Missing items:

@@ -1,0 +1,11 @@
+{
+  "name": "cs2-case-opener-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix cs2-case-opener run dev --",
+    "build": "npm --prefix cs2-case-opener run build",
+    "preview": "npm --prefix cs2-case-opener run preview",
+    "download:images": "npm --prefix cs2-case-opener run download:images"
+  }
+}

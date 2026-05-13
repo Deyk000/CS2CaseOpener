@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS2 Case Opener Simulator</title>
+    <script>
+      (function () {
+        var isLiveServer = window.location.port === '5500';
+        if (isLiveServer) {
+          document.documentElement.classList.add('perf-mode');
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Sora:wght@300;400;600;700&display=swap"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Sora:wght@300;400;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <script>
+      if (window.location.protocol === 'file:') {
+        document.body.innerHTML =
+          '<div style="font-family:Arial,sans-serif;max-width:760px;margin:48px auto;padding:24px;border:1px solid #ddd;border-radius:10px;line-height:1.5">' +
+          '<h1 style="margin-top:0">Run This App With Vite</h1>' +
+          '<p>This project uses ES modules and should not be opened directly via file://.</p>' +
+          '<p>Use <strong>npm run dev</strong> in either <strong>c:/CS2CaseOpener</strong> or <strong>c:/CS2CaseOpener/cs2-case-opener</strong>, then open the localhost URL.</p>' +
+          '</div>';
+      }
+    </script>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="header shell">
+      <div>
+        <p class="eyebrow">Counter-Strike 2</p>
+        <h1 class="logo">Case Opener Simulator</h1>
+      </div>
+      <div class="session-stats">
+        <span id="totalOpened">Opened: 0</span>
+        <span id="bestDrop">Best: None</span>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Select A Case</h2>
+          <p>Pick a case and test your luck. Unlimited, no cost.</p>
+        </div>
+        <div id="caseGrid" class="case-grid"></div>
+      </section>
+
+      <section id="spinnerSection" class="panel spinner-section hidden" aria-live="polite">
+        <div class="panel-head compact">
+          <h2 id="selectedCaseName">No Case Selected</h2>
+          <p>Open once for full animation or 10x for instant batch.</p>
+        </div>
+
+        <div id="spinnerContainer" class="spinner-container"></div>
+
+        <div class="open-actions">
+          <button id="openBtn" class="open-btn">Open Case</button>
+          <button id="openX10Btn" class="open-btn ghost">Open x10</button>
+        </div>
+
+        <div id="batchResults" class="batch-results hidden"></div>
+      </section>
+
+      <section class="panel inventory-section">
+        <div class="panel-head compact">
+          <h2>Your Inventory <span id="inventoryCount">(0 items)</span></h2>
+          <button id="clearInventoryBtn" class="tiny-btn">Clear</button>
+        </div>
+        <div id="inventoryGrid" class="inventory-grid"></div>
+      </section>
+    </main>
+
+    <div id="resultModal" class="result-modal hidden" role="dialog" aria-modal="true" aria-label="Drop Result">
+      <div class="modal-content">
+        <div id="resultRarityBanner" class="rarity-banner"></div>
+        <img id="resultImage" class="result-image" src="" alt="Skin image" />
+        <div id="resultName" class="result-name"></div>
+        <div id="resultWear" class="result-wear"></div>
+        <div id="resultFloat" class="result-float"></div>
+        <div id="resultStattrak" class="result-stattrak hidden">StatTrak</div>
+        <button id="closeResultBtn" class="open-btn modal-btn">Add To Inventory</button>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

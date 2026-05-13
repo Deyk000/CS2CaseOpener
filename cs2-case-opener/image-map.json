@@ -1,0 +1,970 @@
+[
+  {
+    "fileName": "dreams_case.png",
+    "kind": "case",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "Dreams & Nightmares Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/dreams_case.png",
+      "dist/assets/images/cases/dreams_case.png"
+    ]
+  },
+  {
+    "fileName": "ak47_nightwish.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "AK-47 | Nightwish",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_nightwish.png",
+      "dist/assets/images/skins/ak47_nightwish.png"
+    ]
+  },
+  {
+    "fileName": "mp9_starlight.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "MP9 | Starlight Protector",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/mp9_starlight.png",
+      "dist/assets/images/skins/mp9_starlight.png"
+    ]
+  },
+  {
+    "fileName": "famas_rem.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "FAMAS | Rapid Eye Movement",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/famas_rem.png",
+      "dist/assets/images/skins/famas_rem.png"
+    ]
+  },
+  {
+    "fileName": "dualies_melon.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "Dual Berettas | Melondrama",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/dualies_melon.png",
+      "dist/assets/images/skins/dualies_melon.png"
+    ]
+  },
+  {
+    "fileName": "mp7_abyssal.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "MP7 | Abyssal Apparition",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/mp7_abyssal.png",
+      "dist/assets/images/skins/mp7_abyssal.png"
+    ]
+  },
+  {
+    "fileName": "g3sg1_dreamglade.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "G3SG1 | Dream Glade",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/g3sg1_dreamglade.png",
+      "dist/assets/images/skins/g3sg1_dreamglade.png"
+    ]
+  },
+  {
+    "fileName": "m4a1s_nightterror.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "M4A1-S | Night Terror",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/m4a1s_nightterror.png",
+      "dist/assets/images/skins/m4a1s_nightterror.png"
+    ]
+  },
+  {
+    "fileName": "ppbizon_spacecat.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "PP-Bizon | Space Cat",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/ppbizon_spacecat.png",
+      "dist/assets/images/skins/ppbizon_spacecat.png"
+    ]
+  },
+  {
+    "fileName": "usps_ticket.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "USP-S | Ticket to Hell",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/usps_ticket.png",
+      "dist/assets/images/skins/usps_ticket.png"
+    ]
+  },
+  {
+    "fileName": "xm1014_zombie.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "XM1014 | Zombie Offensive",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/xm1014_zombie.png",
+      "dist/assets/images/skins/xm1014_zombie.png"
+    ]
+  },
+  {
+    "fileName": "five7_scrawl.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "Five-SeveN | Scrawl",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/five7_scrawl.png",
+      "dist/assets/images/skins/five7_scrawl.png"
+    ]
+  },
+  {
+    "fileName": "mac10_ensnared.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "MAC-10 | Ensnared",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mac10_ensnared.png",
+      "dist/assets/images/skins/mac10_ensnared.png"
+    ]
+  },
+  {
+    "fileName": "mag7_foresight.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "MAG-7 | Foresight",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mag7_foresight.png",
+      "dist/assets/images/skins/mag7_foresight.png"
+    ]
+  },
+  {
+    "fileName": "mp5sd_necrojr.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "MP5-SD | Necro Jr.",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mp5sd_necrojr.png",
+      "dist/assets/images/skins/mp5sd_necrojr.png"
+    ]
+  },
+  {
+    "fileName": "p2000_liftedspirits.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "P2000 | Lifted Spirits",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/p2000_liftedspirits.png",
+      "dist/assets/images/skins/p2000_liftedspirits.png"
+    ]
+  },
+  {
+    "fileName": "sawedoff_spiritboard.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "Sawed-Off | Spirit Board",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/sawedoff_spiritboard.png",
+      "dist/assets/images/skins/sawedoff_spiritboard.png"
+    ]
+  },
+  {
+    "fileName": "scar20_poultrygeist.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "SCAR-20 | Poultrygeist",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/scar20_poultrygeist.png",
+      "dist/assets/images/skins/scar20_poultrygeist.png"
+    ]
+  },
+  {
+    "fileName": "knife_butterfly.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "★ Butterfly Knife",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_butterfly.png",
+      "dist/assets/images/skins/knife_butterfly.png"
+    ]
+  },
+  {
+    "fileName": "knife_huntsman.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "★ Huntsman Knife",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_huntsman.png",
+      "dist/assets/images/skins/knife_huntsman.png"
+    ]
+  },
+  {
+    "fileName": "knife_bowie.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "★ Bowie Knife",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_bowie.png",
+      "dist/assets/images/skins/knife_bowie.png"
+    ]
+  },
+  {
+    "fileName": "knife_falchion.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "★ Falchion Knife",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_falchion.png",
+      "dist/assets/images/skins/knife_falchion.png"
+    ]
+  },
+  {
+    "fileName": "knife_shadowdaggers.png",
+    "kind": "skin",
+    "caseName": "Dreams & Nightmares Case",
+    "displayName": "★ Shadow Daggers",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_shadowdaggers.png",
+      "dist/assets/images/skins/knife_shadowdaggers.png"
+    ]
+  },
+  {
+    "fileName": "kilowatt_case.png",
+    "kind": "case",
+    "caseName": "Kilowatt Case",
+    "displayName": "Kilowatt Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/kilowatt_case.png",
+      "dist/assets/images/cases/kilowatt_case.png"
+    ]
+  },
+  {
+    "fileName": "ak47_inheritance.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "AK-47 | Inheritance",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_inheritance.png",
+      "dist/assets/images/skins/ak47_inheritance.png"
+    ]
+  },
+  {
+    "fileName": "awp_chrome.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "AWP | Chrome Cannon",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/awp_chrome.png",
+      "dist/assets/images/skins/awp_chrome.png"
+    ]
+  },
+  {
+    "fileName": "m4a1s_blacklotus.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "M4A1-S | Black Lotus",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/m4a1s_blacklotus.png",
+      "dist/assets/images/skins/m4a1s_blacklotus.png"
+    ]
+  },
+  {
+    "fileName": "usps_jawbreaker.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "USP-S | Jawbreaker",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/usps_jawbreaker.png",
+      "dist/assets/images/skins/usps_jawbreaker.png"
+    ]
+  },
+  {
+    "fileName": "zeus_olympus.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "Zeus x27 | Olympus",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/zeus_olympus.png",
+      "dist/assets/images/skins/zeus_olympus.png"
+    ]
+  },
+  {
+    "fileName": "five7_hybrid.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "Five-SeveN | Hybrid",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/five7_hybrid.png",
+      "dist/assets/images/skins/five7_hybrid.png"
+    ]
+  },
+  {
+    "fileName": "glock18_block18.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "Glock-18 | Block-18",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/glock18_block18.png",
+      "dist/assets/images/skins/glock18_block18.png"
+    ]
+  },
+  {
+    "fileName": "mp7_justsmile.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "MP7 | Just Smile",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/mp7_justsmile.png",
+      "dist/assets/images/skins/mp7_justsmile.png"
+    ]
+  },
+  {
+    "fileName": "sawedoff_analog.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "Sawed-Off | Analog Input",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/sawedoff_analog.png",
+      "dist/assets/images/skins/sawedoff_analog.png"
+    ]
+  },
+  {
+    "fileName": "ssg08_dezastre.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "SSG 08 | Dezastre",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/ssg08_dezastre.png",
+      "dist/assets/images/skins/ssg08_dezastre.png"
+    ]
+  },
+  {
+    "fileName": "dualberettas_hideout.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "Dual Berettas | Hideout",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/dualberettas_hideout.png",
+      "dist/assets/images/skins/dualberettas_hideout.png"
+    ]
+  },
+  {
+    "fileName": "mac10_lightbox.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "MAC-10 | Light Box",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mac10_lightbox.png",
+      "dist/assets/images/skins/mac10_lightbox.png"
+    ]
+  },
+  {
+    "fileName": "nova_darksigil.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "Nova | Dark Sigil",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/nova_darksigil.png",
+      "dist/assets/images/skins/nova_darksigil.png"
+    ]
+  },
+  {
+    "fileName": "tec9_slag.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "Tec-9 | Slag",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/tec9_slag.png",
+      "dist/assets/images/skins/tec9_slag.png"
+    ]
+  },
+  {
+    "fileName": "ump45_motorized.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "UMP-45 | Motorized",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/ump45_motorized.png",
+      "dist/assets/images/skins/ump45_motorized.png"
+    ]
+  },
+  {
+    "fileName": "xm1014_irezumi.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "XM1014 | Irezumi",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/xm1014_irezumi.png",
+      "dist/assets/images/skins/xm1014_irezumi.png"
+    ]
+  },
+  {
+    "fileName": "m249_hypnosis.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "M249 | Hypnosis",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/m249_hypnosis.png",
+      "dist/assets/images/skins/m249_hypnosis.png"
+    ]
+  },
+  {
+    "fileName": "knife_kukri_doppler.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "★ Kukri Knife | Doppler",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_kukri_doppler.png",
+      "dist/assets/images/skins/knife_kukri_doppler.png"
+    ]
+  },
+  {
+    "fileName": "knife_kukri_marblefade.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "★ Kukri Knife | Marble Fade",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_kukri_marblefade.png",
+      "dist/assets/images/skins/knife_kukri_marblefade.png"
+    ]
+  },
+  {
+    "fileName": "knife_kukri_tigertooth.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "★ Kukri Knife | Tiger Tooth",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_kukri_tigertooth.png",
+      "dist/assets/images/skins/knife_kukri_tigertooth.png"
+    ]
+  },
+  {
+    "fileName": "knife_kukri_slaughter.png",
+    "kind": "skin",
+    "caseName": "Kilowatt Case",
+    "displayName": "★ Kukri Knife | Slaughter",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_kukri_slaughter.png",
+      "dist/assets/images/skins/knife_kukri_slaughter.png"
+    ]
+  },
+  {
+    "fileName": "recoil_case.png",
+    "kind": "case",
+    "caseName": "Recoil Case",
+    "displayName": "Recoil Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/recoil_case.png",
+      "dist/assets/images/cases/recoil_case.png"
+    ]
+  },
+  {
+    "fileName": "awp_chromatic_aberration.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "AWP | Chromatic Aberration",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/awp_chromatic_aberration.png",
+      "dist/assets/images/skins/awp_chromatic_aberration.png"
+    ]
+  },
+  {
+    "fileName": "usp_s_printstream.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "USP-S | Printstream",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/usp_s_printstream.png",
+      "dist/assets/images/skins/usp_s_printstream.png"
+    ]
+  },
+  {
+    "fileName": "ak47_ice_coaled.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "AK-47 | Ice Coaled",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_ice_coaled.png",
+      "dist/assets/images/skins/ak47_ice_coaled.png"
+    ]
+  },
+  {
+    "fileName": "p250_visions.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "P250 | Visions",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/p250_visions.png",
+      "dist/assets/images/skins/p250_visions.png"
+    ]
+  },
+  {
+    "fileName": "sawedoff_kiss_love.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Sawed-Off | Kiss♥Love",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/sawedoff_kiss_love.png",
+      "dist/assets/images/skins/sawedoff_kiss_love.png"
+    ]
+  },
+  {
+    "fileName": "r8_revolver_crazy_8.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "R8 Revolver | Crazy 8",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/r8_revolver_crazy_8.png",
+      "dist/assets/images/skins/r8_revolver_crazy_8.png"
+    ]
+  },
+  {
+    "fileName": "m249_downtown.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "M249 | Downtown",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/m249_downtown.png",
+      "dist/assets/images/skins/m249_downtown.png"
+    ]
+  },
+  {
+    "fileName": "sg553_dragon_tech.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "SG 553 | Dragon Tech",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/sg553_dragon_tech.png",
+      "dist/assets/images/skins/sg553_dragon_tech.png"
+    ]
+  },
+  {
+    "fileName": "p90_vent_rush.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "P90 | Vent Rush",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/p90_vent_rush.png",
+      "dist/assets/images/skins/p90_vent_rush.png"
+    ]
+  },
+  {
+    "fileName": "dual_berettas_flora_carnivora.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Dual Berettas | Flora Carnivora",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/dual_berettas_flora_carnivora.png",
+      "dist/assets/images/skins/dual_berettas_flora_carnivora.png"
+    ]
+  },
+  {
+    "fileName": "famas_meow36.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "FAMAS | Meow 36",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/famas_meow36.png",
+      "dist/assets/images/skins/famas_meow36.png"
+    ]
+  },
+  {
+    "fileName": "galil_ar_destroyer.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Galil AR | Destroyer",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/galil_ar_destroyer.png",
+      "dist/assets/images/skins/galil_ar_destroyer.png"
+    ]
+  },
+  {
+    "fileName": "m4a4_poly_mag.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "M4A4 | Poly Mag",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/m4a4_poly_mag.png",
+      "dist/assets/images/skins/m4a4_poly_mag.png"
+    ]
+  },
+  {
+    "fileName": "mac10_monkeyflage.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "MAC-10 | Monkeyflage",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mac10_monkeyflage.png",
+      "dist/assets/images/skins/mac10_monkeyflage.png"
+    ]
+  },
+  {
+    "fileName": "negev_drop_me.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Negev | Drop Me",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/negev_drop_me.png",
+      "dist/assets/images/skins/negev_drop_me.png"
+    ]
+  },
+  {
+    "fileName": "ump45_roadblock.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "UMP-45 | Roadblock",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/ump45_roadblock.png",
+      "dist/assets/images/skins/ump45_roadblock.png"
+    ]
+  },
+  {
+    "fileName": "glock_winterized.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Glock-18 | Winterized",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/glock_winterized.png",
+      "dist/assets/images/skins/glock_winterized.png"
+    ]
+  },
+  {
+    "fileName": "gloves_brokenfang_jade.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Broken Fang Gloves | Jade",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_brokenfang_jade.png",
+      "dist/assets/images/skins/gloves_brokenfang_jade.png"
+    ]
+  },
+  {
+    "fileName": "gloves_brokenfang_needlepoint.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Broken Fang Gloves | Needle Point",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_brokenfang_needlepoint.png",
+      "dist/assets/images/skins/gloves_brokenfang_needlepoint.png"
+    ]
+  },
+  {
+    "fileName": "gloves_brokenfang_unhinged.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Broken Fang Gloves | Unhinged",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_brokenfang_unhinged.png",
+      "dist/assets/images/skins/gloves_brokenfang_unhinged.png"
+    ]
+  },
+  {
+    "fileName": "gloves_brokenfang_yellowbanded.png",
+    "kind": "skin",
+    "caseName": "Recoil Case",
+    "displayName": "Broken Fang Gloves | Yellow-banded",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_brokenfang_yellowbanded.png",
+      "dist/assets/images/skins/gloves_brokenfang_yellowbanded.png"
+    ]
+  },
+  {
+    "fileName": "revolution_case.png",
+    "kind": "case",
+    "caseName": "Revolution Case",
+    "displayName": "Revolution Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/revolution_case.png",
+      "dist/assets/images/cases/revolution_case.png"
+    ]
+  },
+  {
+    "fileName": "ak47_headshot.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "AK-47 | Head Shot",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_headshot.png",
+      "dist/assets/images/skins/ak47_headshot.png"
+    ]
+  },
+  {
+    "fileName": "m4a4_temukau.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "M4A4 | Temukau",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/m4a4_temukau.png",
+      "dist/assets/images/skins/m4a4_temukau.png"
+    ]
+  },
+  {
+    "fileName": "awp_duality.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "AWP | Duality",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/awp_duality.png",
+      "dist/assets/images/skins/awp_duality.png"
+    ]
+  },
+  {
+    "fileName": "p2000_wickedsick.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "P2000 | Wicked Sick",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/p2000_wickedsick.png",
+      "dist/assets/images/skins/p2000_wickedsick.png"
+    ]
+  },
+  {
+    "fileName": "ump45_wildchild.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "UMP-45 | Wild Child",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/ump45_wildchild.png",
+      "dist/assets/images/skins/ump45_wildchild.png"
+    ]
+  },
+  {
+    "fileName": "glock18_umbralrabbit.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "Glock-18 | Umbral Rabbit",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/glock18_umbralrabbit.png",
+      "dist/assets/images/skins/glock18_umbralrabbit.png"
+    ]
+  },
+  {
+    "fileName": "m4a1s_emphorosaur.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "M4A1-S | Emphorosaur-S",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/m4a1s_emphorosaur.png",
+      "dist/assets/images/skins/m4a1s_emphorosaur.png"
+    ]
+  },
+  {
+    "fileName": "p90_neoqueen.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "P90 | Neoqueen",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/p90_neoqueen.png",
+      "dist/assets/images/skins/p90_neoqueen.png"
+    ]
+  },
+  {
+    "fileName": "r8_bananacanon.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "R8 Revolver | Banana Cannon",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/r8_bananacanon.png",
+      "dist/assets/images/skins/r8_bananacanon.png"
+    ]
+  },
+  {
+    "fileName": "mag7_insomnia.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "MAG-7 | Insomnia",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mag7_insomnia.png",
+      "dist/assets/images/skins/mag7_insomnia.png"
+    ]
+  },
+  {
+    "fileName": "mp9_featherweight.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "MP9 | Featherweight",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mp9_featherweight.png",
+      "dist/assets/images/skins/mp9_featherweight.png"
+    ]
+  },
+  {
+    "fileName": "scar20_fragments.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "SCAR-20 | Fragments",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/scar20_fragments.png",
+      "dist/assets/images/skins/scar20_fragments.png"
+    ]
+  },
+  {
+    "fileName": "sg553_cyberforce.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "SG 553 | Cyberforce",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/sg553_cyberforce.png",
+      "dist/assets/images/skins/sg553_cyberforce.png"
+    ]
+  },
+  {
+    "fileName": "tec9_rebel.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "Tec-9 | Rebel",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/tec9_rebel.png",
+      "dist/assets/images/skins/tec9_rebel.png"
+    ]
+  },
+  {
+    "fileName": "mac10_sakkaku.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "MAC-10 | Sakkaku",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mac10_sakkaku.png",
+      "dist/assets/images/skins/mac10_sakkaku.png"
+    ]
+  },
+  {
+    "fileName": "p250_rebuilt.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "P250 | Re.built",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/p250_rebuilt.png",
+      "dist/assets/images/skins/p250_rebuilt.png"
+    ]
+  },
+  {
+    "fileName": "gloves_clutch_weathered.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "Clutch Gloves | Weathered",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_clutch_weathered.png",
+      "dist/assets/images/skins/gloves_clutch_weathered.png"
+    ]
+  },
+  {
+    "fileName": "gloves_clutch_cordura.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "Clutch Gloves | Cordura",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_clutch_cordura.png",
+      "dist/assets/images/skins/gloves_clutch_cordura.png"
+    ]
+  },
+  {
+    "fileName": "gloves_clutch_unstoppableforce.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "Clutch Gloves | Unstoppable Force",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_clutch_unstoppableforce.png",
+      "dist/assets/images/skins/gloves_clutch_unstoppableforce.png"
+    ]
+  },
+  {
+    "fileName": "gloves_clutch_voltage.png",
+    "kind": "skin",
+    "caseName": "Revolution Case",
+    "displayName": "Clutch Gloves | Voltage",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/gloves_clutch_voltage.png",
+      "dist/assets/images/skins/gloves_clutch_voltage.png"
+    ]
+  }
+]

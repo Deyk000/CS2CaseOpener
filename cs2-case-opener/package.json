@@ -1,0 +1,19 @@
+{
+  "name": "cs2-case-opener",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check:images": "node check-images.js",
+    "download:images": "node download-images.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^8.0.12"
+  }
+}
