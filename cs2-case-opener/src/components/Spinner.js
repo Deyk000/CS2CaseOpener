@@ -1,3 +1,5 @@
+import { assetPath } from '../utils/assetPath.js';
+
 const REEL_ITEMS = 60;
 const SPIN_DURATION_MS = 8000;
 
@@ -70,7 +72,7 @@ export class Spinner {
   buildSkinCard(skin) {
     return `
       <article class="reel-item" style="border-color:${skin.rarity.color}">
-        <img src="/assets/images/skins/${skin.image}" alt="${skin.name}" />
+        <img src="${assetPath('skins', skin.image)}" alt="${skin.name}" />
         <span class="reel-item-name">${skin.name}</span>
       </article>
     `;

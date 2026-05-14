@@ -1,3 +1,5 @@
+import { assetPath } from '../utils/assetPath.js';
+
 const STORAGE_KEY = 'cs2_opener_inventory';
 
 export class Inventory {
@@ -58,7 +60,7 @@ export class Inventory {
         (item) => `
           <article class="inventory-item" style="border-color:${item.rarity.color}66">
             ${item.isStatTrak ? '<span class="stattrak-badge">ST</span>' : ''}
-            <img src="/assets/images/skins/${item.image}" alt="${item.skinName}" />
+            <img src="${assetPath('skins', item.image)}" alt="${item.skinName}" />
             <div class="inventory-item-name" style="color:${item.rarity.color}">
               ${item.isStatTrak ? 'StatTrak ' : ''}${item.skinName}
             </div>

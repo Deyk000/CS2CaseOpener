@@ -1,5 +1,6 @@
 import { RARITY } from '../rarities.js';
 import { SPECIAL_ITEM_POOLS } from '../knifePools.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'AWP | Chromatic Aberration', rarity: RARITY.COVERT, image: 'awp_chromatic_aberration.png', stattrak: true },
@@ -23,7 +24,7 @@ const skins = [
 
 export const recoilCase = {
   name: 'Recoil Case',
-  image: '/assets/images/cases/recoil_case.png',
+  image: assetPath('cases', 'recoil_case.png'),
   specialItemPool: SPECIAL_ITEM_POOLS.recoil,
   skins,
   displayItems: [...skins, ...SPECIAL_ITEM_POOLS.recoil],

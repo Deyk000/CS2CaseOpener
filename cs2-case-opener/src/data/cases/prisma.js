@@ -1,5 +1,6 @@
 import { RARITY } from '../rarities.js';
 import { SPECIAL_ITEM_POOLS } from '../knifePools.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'Glock-18 Wasteland Rebel', rarity: RARITY.COVERT, image: 'glock_wasteland_rebel.png', stattrak: true },
@@ -20,7 +21,7 @@ const prismaKnives = [
 
 export const prismaCase = {
   name: 'Prisma Case',
-  image: '/assets/images/cases/prisma_case.png',
+  image: assetPath('cases', 'prisma_case.png'),
   specialItemPool: prismaKnives,
   skins,
   displayItems: [...skins, ...prismaKnives],

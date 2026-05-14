@@ -1,4 +1,5 @@
 import { RARITY } from '../rarities.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'Dragon Lore', rarity: RARITY.COVERT, image: 'ak47_dragon_lore.png', stattrak: true },
@@ -19,7 +20,7 @@ const chromaKnives = [
 
 export const chromaCase = {
   name: 'Chroma Case',
-  image: '/assets/images/cases/chroma_case.png',
+  image: assetPath('cases', 'chroma_case.png'),
   specialItemPool: chromaKnives,
   skins,
   displayItems: [...skins, ...chromaKnives],

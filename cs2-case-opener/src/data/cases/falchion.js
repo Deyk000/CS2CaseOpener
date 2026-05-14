@@ -1,5 +1,6 @@
 import { RARITY } from '../rarities.js';
 import { SPECIAL_ITEM_POOLS } from '../knifePools.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'AWP Dragon Lore', rarity: RARITY.COVERT, image: 'awp_dragon_lore.png', stattrak: true },
@@ -20,7 +21,7 @@ const falchionKnives = [
 
 export const falchionCase = {
   name: 'Falchion Case',
-  image: '/assets/images/cases/falchion_case.png',
+  image: assetPath('cases', 'falchion_case.png'),
   specialItemPool: falchionKnives,
   skins,
   displayItems: [...skins, ...falchionKnives],

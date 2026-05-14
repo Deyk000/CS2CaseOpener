@@ -1,5 +1,6 @@
 import { RARITY } from '../rarities.js';
 import { SPECIAL_ITEM_POOLS } from '../knifePools.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'AK-47 | Head Shot', rarity: RARITY.COVERT, image: 'ak47_headshot.png', stattrak: true },
@@ -22,7 +23,7 @@ const skins = [
 
 export const revolutionCase = {
   name: 'Revolution Case',
-  image: '/assets/images/cases/revolution_case.png',
+  image: assetPath('cases', 'revolution_case.png'),
   specialItemPool: SPECIAL_ITEM_POOLS.clutch,
   skins,
   displayItems: [...skins, ...SPECIAL_ITEM_POOLS.clutch],

@@ -1,5 +1,6 @@
 import { RARITY } from '../rarities.js';
 import { SPECIAL_ITEM_POOLS } from '../knifePools.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'AK-47 | Inheritance', rarity: RARITY.COVERT, image: 'ak47_inheritance.png', stattrak: true },
@@ -23,7 +24,7 @@ const skins = [
 
 export const kilowattCase = {
   name: 'Kilowatt Case',
-  image: '/assets/images/cases/kilowatt_case.png',
+  image: assetPath('cases', 'kilowatt_case.png'),
   specialItemPool: SPECIAL_ITEM_POOLS.kukri,
   skins,
   displayItems: [...skins, ...SPECIAL_ITEM_POOLS.kukri],

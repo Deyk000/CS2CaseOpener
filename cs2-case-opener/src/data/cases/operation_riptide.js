@@ -1,4 +1,5 @@
 import { RARITY } from '../rarities.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'Fire Serpent', rarity: RARITY.COVERT, image: 'ak47_fire_serpent.png', stattrak: true },
@@ -19,7 +20,7 @@ const riptideKnives = [
 
 export const operationRiptideCase = {
   name: 'Operation Riptide Case',
-  image: '/assets/images/cases/operation_riptide_case.png',
+  image: assetPath('cases', 'operation_riptide_case.png'),
   specialItemPool: riptideKnives,
   skins,
   displayItems: [...skins, ...riptideKnives],

@@ -1,5 +1,6 @@
 import { RARITY } from '../rarities.js';
 import { SPECIAL_ITEM_POOLS } from '../knifePools.js';
+import { assetPath } from '../../utils/assetPath.js';
 
 const skins = [
   { name: 'AK-47 | Nightwish', rarity: RARITY.COVERT, image: 'ak47_nightwish.png', stattrak: true },
@@ -23,7 +24,7 @@ const skins = [
 
 export const dreamsCase = {
   name: 'Dreams & Nightmares Case',
-  image: '/assets/images/cases/dreams_case.png',
+  image: assetPath('cases', 'dreams_case.png'),
   specialItemPool: SPECIAL_ITEM_POOLS.dreams,
   skins,
   displayItems: [...skins, ...SPECIAL_ITEM_POOLS.dreams],
