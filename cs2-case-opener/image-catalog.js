@@ -7,12 +7,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export const PROJECT_ROOT = __dirname;
-export const TARGET_CASE_NAMES = new Set([
-  'Dreams & Nightmares Case',
-  'Kilowatt Case',
-  'Recoil Case',
-  'Revolution Case',
-]);
 
 const CASES_DIR = path.join(PROJECT_ROOT, 'src', 'data', 'cases');
 const PUBLIC_IMAGES_DIR = path.join(PROJECT_ROOT, 'public', 'assets', 'images');
@@ -74,7 +68,7 @@ export async function loadTargetCases() {
     const moduleExports = await import(moduleUrl);
     const caseData = pickCaseExport(moduleExports);
 
-    if (caseData && TARGET_CASE_NAMES.has(caseData.name)) {
+    if (caseData) {
       cases.push(caseData);
     }
   }

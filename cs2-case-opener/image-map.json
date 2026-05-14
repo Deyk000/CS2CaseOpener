@@ -1,5 +1,126 @@
 [
   {
+    "fileName": "chroma_case.png",
+    "kind": "case",
+    "caseName": "Chroma Case",
+    "displayName": "Chroma Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/chroma_case.png",
+      "dist/assets/images/cases/chroma_case.png"
+    ]
+  },
+  {
+    "fileName": "ak47_dragon_lore.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Dragon Lore",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_dragon_lore.png",
+      "dist/assets/images/skins/ak47_dragon_lore.png"
+    ]
+  },
+  {
+    "fileName": "awp_howl.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Howl",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/awp_howl.png",
+      "dist/assets/images/skins/awp_howl.png"
+    ]
+  },
+  {
+    "fileName": "ak47_worm_god.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Worm God",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_worm_god.png",
+      "dist/assets/images/skins/ak47_worm_god.png"
+    ]
+  },
+  {
+    "fileName": "ak47_phantom.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Phantom Disruptor",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_phantom.png",
+      "dist/assets/images/skins/ak47_phantom.png"
+    ]
+  },
+  {
+    "fileName": "ak47_aquamarine.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Aquamarine Revenge",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_aquamarine.png",
+      "dist/assets/images/skins/ak47_aquamarine.png"
+    ]
+  },
+  {
+    "fileName": "ak47_neon_rider.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Neon Rider",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_neon_rider.png",
+      "dist/assets/images/skins/ak47_neon_rider.png"
+    ]
+  },
+  {
+    "fileName": "ak47_phantom_disruptor_blue.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Phantom Disruptor",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_phantom_disruptor_blue.png",
+      "dist/assets/images/skins/ak47_phantom_disruptor_blue.png"
+    ]
+  },
+  {
+    "fileName": "ak47_uncharted.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "Uncharted",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_uncharted.png",
+      "dist/assets/images/skins/ak47_uncharted.png"
+    ]
+  },
+  {
+    "fileName": "knife_gut.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "★ Gut Knife | Doppler",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_gut.png",
+      "dist/assets/images/skins/knife_gut.png"
+    ]
+  },
+  {
+    "fileName": "knife_shadow.png",
+    "kind": "skin",
+    "caseName": "Chroma Case",
+    "displayName": "★ Shadow Daggers | Fade",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_shadow.png",
+      "dist/assets/images/skins/knife_shadow.png"
+    ]
+  },
+  {
     "fileName": "dreams_case.png",
     "kind": "case",
     "caseName": "Dreams & Nightmares Case",
@@ -253,6 +374,116 @@
     ]
   },
   {
+    "fileName": "falchion_case.png",
+    "kind": "case",
+    "caseName": "Falchion Case",
+    "displayName": "Falchion Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/falchion_case.png",
+      "dist/assets/images/cases/falchion_case.png"
+    ]
+  },
+  {
+    "fileName": "awp_dragon_lore.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "AWP Dragon Lore",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/awp_dragon_lore.png",
+      "dist/assets/images/skins/awp_dragon_lore.png"
+    ]
+  },
+  {
+    "fileName": "m4a1s_knight.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "M4A1-S Knight",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/m4a1s_knight.png",
+      "dist/assets/images/skins/m4a1s_knight.png"
+    ]
+  },
+  {
+    "fileName": "karambit_gamma.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "Karambit Gamma",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/karambit_gamma.png",
+      "dist/assets/images/skins/karambit_gamma.png"
+    ]
+  },
+  {
+    "fileName": "m9_bayonet_doppler.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "M9 Bayonet Doppler",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/m9_bayonet_doppler.png",
+      "dist/assets/images/skins/m9_bayonet_doppler.png"
+    ]
+  },
+  {
+    "fileName": "butterfly_knife_fade.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "Butterfly Knife Fade",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/butterfly_knife_fade.png",
+      "dist/assets/images/skins/butterfly_knife_fade.png"
+    ]
+  },
+  {
+    "fileName": "flip_knife_marble_fade.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "Flip Knife Marble Fade",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/flip_knife_marble_fade.png",
+      "dist/assets/images/skins/flip_knife_marble_fade.png"
+    ]
+  },
+  {
+    "fileName": "huntsman_knife_night.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "Huntsman Knife Night",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/huntsman_knife_night.png",
+      "dist/assets/images/skins/huntsman_knife_night.png"
+    ]
+  },
+  {
+    "fileName": "bowie_knife_safari_mesh.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "Bowie Knife Safari Mesh",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/bowie_knife_safari_mesh.png",
+      "dist/assets/images/skins/bowie_knife_safari_mesh.png"
+    ]
+  },
+  {
+    "fileName": "knife_talon.png",
+    "kind": "skin",
+    "caseName": "Falchion Case",
+    "displayName": "★ Talon Knife | Doppler",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_talon.png",
+      "dist/assets/images/skins/knife_talon.png"
+    ]
+  },
+  {
     "fileName": "kilowatt_case.png",
     "kind": "case",
     "caseName": "Kilowatt Case",
@@ -492,6 +723,248 @@
     "targetPaths": [
       "public/assets/images/skins/knife_kukri_slaughter.png",
       "dist/assets/images/skins/knife_kukri_slaughter.png"
+    ]
+  },
+  {
+    "fileName": "operation_riptide_case.png",
+    "kind": "case",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Operation Riptide Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/operation_riptide_case.png",
+      "dist/assets/images/cases/operation_riptide_case.png"
+    ]
+  },
+  {
+    "fileName": "ak47_fire_serpent.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Fire Serpent",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_fire_serpent.png",
+      "dist/assets/images/skins/ak47_fire_serpent.png"
+    ]
+  },
+  {
+    "fileName": "ak47_point_disarray.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Point Disarray",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_point_disarray.png",
+      "dist/assets/images/skins/ak47_point_disarray.png"
+    ]
+  },
+  {
+    "fileName": "ak47_hydroponic.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Hydroponic",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_hydroponic.png",
+      "dist/assets/images/skins/ak47_hydroponic.png"
+    ]
+  },
+  {
+    "fileName": "ak47_phantom_blue.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Phantom Disruptor",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_phantom_blue.png",
+      "dist/assets/images/skins/ak47_phantom_blue.png"
+    ]
+  },
+  {
+    "fileName": "ak47_uncharted_restricted.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Uncharted",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_uncharted_restricted.png",
+      "dist/assets/images/skins/ak47_uncharted_restricted.png"
+    ]
+  },
+  {
+    "fileName": "ak47_neon_restricted.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Neon Rider",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_neon_restricted.png",
+      "dist/assets/images/skins/ak47_neon_restricted.png"
+    ]
+  },
+  {
+    "fileName": "ak47_phantom_mil_spec.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Phantom Disruptor",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_phantom_mil_spec.png",
+      "dist/assets/images/skins/ak47_phantom_mil_spec.png"
+    ]
+  },
+  {
+    "fileName": "ak47_uncharted_mil_spec.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "Uncharted",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_uncharted_mil_spec.png",
+      "dist/assets/images/skins/ak47_uncharted_mil_spec.png"
+    ]
+  },
+  {
+    "fileName": "knife_navaja.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "★ Navaja Knife | Slaughter",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_navaja.png",
+      "dist/assets/images/skins/knife_navaja.png"
+    ]
+  },
+  {
+    "fileName": "knife_paracord.png",
+    "kind": "skin",
+    "caseName": "Operation Riptide Case",
+    "displayName": "★ Paracord Knife | Fade",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_paracord.png",
+      "dist/assets/images/skins/knife_paracord.png"
+    ]
+  },
+  {
+    "fileName": "prisma_case.png",
+    "kind": "case",
+    "caseName": "Prisma Case",
+    "displayName": "Prisma Case",
+    "rarity": "case",
+    "targetPaths": [
+      "public/assets/images/cases/prisma_case.png",
+      "dist/assets/images/cases/prisma_case.png"
+    ]
+  },
+  {
+    "fileName": "glock_wasteland_rebel.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "Glock-18 Wasteland Rebel",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/glock_wasteland_rebel.png",
+      "dist/assets/images/skins/glock_wasteland_rebel.png"
+    ]
+  },
+  {
+    "fileName": "p250_nuclear_threat.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "P250 Nuclear Threat",
+    "rarity": "Covert",
+    "targetPaths": [
+      "public/assets/images/skins/p250_nuclear_threat.png",
+      "dist/assets/images/skins/p250_nuclear_threat.png"
+    ]
+  },
+  {
+    "fileName": "ak47_phantom_disruptor.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "AK-47 Phantom Disruptor",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/ak47_phantom_disruptor.png",
+      "dist/assets/images/skins/ak47_phantom_disruptor.png"
+    ]
+  },
+  {
+    "fileName": "m4a4_phantom_disruptor.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "M4A4 Phantom Disruptor",
+    "rarity": "Classified",
+    "targetPaths": [
+      "public/assets/images/skins/m4a4_phantom_disruptor.png",
+      "dist/assets/images/skins/m4a4_phantom_disruptor.png"
+    ]
+  },
+  {
+    "fileName": "awp_containment_breach.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "AWP Containment Breach",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/awp_containment_breach.png",
+      "dist/assets/images/skins/awp_containment_breach.png"
+    ]
+  },
+  {
+    "fileName": "usps_phantom_disruptor.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "USP-S Phantom Disruptor",
+    "rarity": "Restricted",
+    "targetPaths": [
+      "public/assets/images/skins/usps_phantom_disruptor.png",
+      "dist/assets/images/skins/usps_phantom_disruptor.png"
+    ]
+  },
+  {
+    "fileName": "mp7_nemesis.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "MP7 Nemesis",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/mp7_nemesis.png",
+      "dist/assets/images/skins/mp7_nemesis.png"
+    ]
+  },
+  {
+    "fileName": "famas_djinn.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "FAMAS Djinn",
+    "rarity": "Mil-Spec Grade",
+    "targetPaths": [
+      "public/assets/images/skins/famas_djinn.png",
+      "dist/assets/images/skins/famas_djinn.png"
+    ]
+  },
+  {
+    "fileName": "knife_stiletto.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "★ Stiletto Knife | Slaughter",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_stiletto.png",
+      "dist/assets/images/skins/knife_stiletto.png"
+    ]
+  },
+  {
+    "fileName": "knife_ursus.png",
+    "kind": "skin",
+    "caseName": "Prisma Case",
+    "displayName": "★ Ursus Knife | Urban Masked",
+    "rarity": "Rare Special Item",
+    "targetPaths": [
+      "public/assets/images/skins/knife_ursus.png",
+      "dist/assets/images/skins/knife_ursus.png"
     ]
   },
   {
