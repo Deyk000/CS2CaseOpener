@@ -1,0 +1,24 @@
+{
+  "name": "CS2 Case Opener Simulator",
+  "short_name": "CS2 Cases",
+  "description": "Free Counter-Strike 2 case opening simulator with real market prices.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0d1320",
+  "theme_color": "#0f1726",
+  "icons": [
+    {
+      "src": "/assets/images/cases/chroma_case.png",
+      "sizes": "256x198",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/cases/kilowatt_case.png",
+      "sizes": "256x198",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

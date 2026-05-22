@@ -6,6 +6,10 @@
     "dev": "npm --prefix cs2-case-opener run dev --",
     "build": "npm --prefix cs2-case-opener run build",
     "preview": "npm --prefix cs2-case-opener run preview",
-    "download:images": "npm --prefix cs2-case-opener run download:images"
+    "download:images": "npm --prefix cs2-case-opener run download:images",
+    "verify:assets": "npm --prefix cs2-case-opener run verify:assets"
+  },
+  "dependencies": {
+    "three": "^0.184.0"
   }
 }

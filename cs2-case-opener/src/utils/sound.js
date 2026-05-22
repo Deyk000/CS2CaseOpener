@@ -1,76 +1,124 @@
+const SOUND_PREFS_KEY = 'cs2_sound_prefs';
+
+function loadPrefs() {
+  if (typeof localStorage === 'undefined') return { muted: true, volume: 0.6 };
+  try {
+    const stored = JSON.parse(localStorage.getItem(SOUND_PREFS_KEY) || 'null');
+    if (stored && typeof stored === 'object') {
+      return {
+        muted: typeof stored.muted === 'boolean' ? stored.muted : true,
+        volume: Number.isFinite(stored.volume) ? Math.max(0, Math.min(1, stored.volume)) : 0.6,
+      };
+    }
+  } catch {}
+  // Default: muted on first visit (consent gate).
+  return { muted: true, volume: 0.6 };
+}
+
+function savePrefs(prefs) {
+  if (typeof localStorage === 'undefined') return;
+  try { localStorage.setItem(SOUND_PREFS_KEY, JSON.stringify(prefs)); } catch {}
+}
+
 class SoundManager {
   constructor() {
     this.ctx = null;
-    this.enabled = true;
     this.cache = new Map();
+    const prefs = loadPrefs();
+    this.muted = prefs.muted;
+    this.volume = prefs.volume;
   }
 
   init() {
-    if (!this.ctx) {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      this.ctx = new Ctx();
+    if (this.ctx || typeof window === 'undefined') {
+      return;
     }
 
+    const Context = window.AudioContext || window.webkitAudioContext;
+    if (!Context) {
+      return;
+    }
+
+    this.ctx = new Context();
     if (this.ctx.state === 'suspended') {
       this.ctx.resume().catch(() => {});
     }
   }
 
-  async decode(src) {
-    if (this.cache.has(src)) {
-      return this.cache.get(src);
+  async preload() {
+    this.init();
+  }
+
+  setMuted(value) {
+    this.muted = Boolean(value);
+    savePrefs({ muted: this.muted, volume: this.volume });
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('sound:changed', { detail: { muted: this.muted, volume: this.volume } }));
+    }
+  }
+
+  setVolume(value) {
+    this.volume = Math.max(0, Math.min(1, Number(value) || 0));
+    savePrefs({ muted: this.muted, volume: this.volume });
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('sound:changed', { detail: { muted: this.muted, volume: this.volume } }));
+    }
+  }
+
+  isMuted() { return this.muted; }
+  getVolume() { return this.volume; }
+
+  async play(soundId) {
+    if (this.muted || !this.ctx) {
+      return;
+    }
+
+    const sourceUrl = this.resolveSound(soundId);
+    if (!sourceUrl) {
+      return;
     }
 
     try {
-      const response = await fetch(src);
-      if (!response.ok) {
-        return null;
+      let buffer = this.cache.get(sourceUrl);
+      if (!buffer) {
+        const response = await fetch(sourceUrl);
+        if (!response.ok) {
+          return;
+        }
+        buffer = await this.ctx.decodeAudioData(await response.arrayBuffer());
+        this.cache.set(sourceUrl, buffer);
       }
 
-      const buffer = await response.arrayBuffer();
-      const decoded = await this.ctx.decodeAudioData(buffer);
-      this.cache.set(src, decoded);
-      return decoded;
+      const source = this.ctx.createBufferSource();
+      const gain = this.ctx.createGain();
+      gain.gain.value = this.volume;
+      source.buffer = buffer;
+      source.connect(gain);
+      gain.connect(this.ctx.destination);
+      source.start(0);
     } catch {
-      return null;
+      // no-op
     }
   }
 
-  async playSound(src, volume = 1) {
-    if (!this.enabled || !this.ctx) {
-      return;
-    }
+  resolveSound(soundId) {
+    const map = {
+      tick: '/assets/sounds/tick.mp3',
+      open: '/assets/sounds/open.mp3',
+      reveal: '/assets/sounds/reveal.mp3',
+      rare: '/assets/sounds/rare.mp3',
+      legendary: '/assets/sounds/legendary.mp3',
+      levelup: '/assets/sounds/levelup.mp3',
+      coins: '/assets/sounds/coins.mp3',
+      click: '/assets/sounds/tick.mp3',
+    };
 
-    const decoded = await this.decode(src);
-    if (!decoded) {
-      return;
-    }
-
-    const source = this.ctx.createBufferSource();
-    const gain = this.ctx.createGain();
-    gain.gain.value = volume;
-    source.buffer = decoded;
-
-    source.connect(gain);
-    gain.connect(this.ctx.destination);
-    source.start(0);
-  }
-
-  playSpinStart() {
-    this.playSound('/assets/sounds/case_spin.mp3', 0.6);
-  }
-
-  playWin() {
-    this.playSound('/assets/sounds/case_win.mp3', 0.9);
-  }
-
-  playRareWin() {
-    this.playSound('/assets/sounds/case_rare.mp3', 1.0);
-  }
-
-  playClick() {
-    this.playSound('/assets/sounds/click.mp3', 0.45);
+    return map[soundId] ?? null;
   }
 }
 
 export const sound = new SoundManager();
+export const preload = () => sound.preload();
+export const play = (soundId) => sound.play(soundId);
+export const setMuted = (value) => sound.setMuted(value);
+export const setVolume = (value) => sound.setVolume(value);

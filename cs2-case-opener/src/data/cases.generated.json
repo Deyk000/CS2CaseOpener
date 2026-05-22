@@ -1,0 +1,1386 @@
+[
+  {
+    "name": "Chroma Case",
+    "image": "chroma_case.png",
+    "skins": [
+      {
+        "name": "Catacombs",
+        "fullName": "Glock-18 | Catacombs",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "glock_18_catacombs.png",
+        "stattrak": true
+      },
+      {
+        "name": "System Lock",
+        "fullName": "M249 | System Lock",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "m249_system_lock.png",
+        "stattrak": true
+      },
+      {
+        "name": "Deadly Poison",
+        "fullName": "MP9 | Deadly Poison",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mp9_deadly_poison.png",
+        "stattrak": true
+      },
+      {
+        "name": "Grotto",
+        "fullName": "SCAR-20 | Grotto",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "scar_20_grotto.png",
+        "stattrak": true
+      },
+      {
+        "name": "Quicksilver",
+        "fullName": "XM1014 | Quicksilver",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "xm1014_quicksilver.png",
+        "stattrak": true
+      },
+      {
+        "name": "Urban Shock",
+        "fullName": "Dual Berettas | Urban Shock",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "dual_berettas_urban_shock.png",
+        "stattrak": true
+      },
+      {
+        "name": "Naga",
+        "fullName": "Desert Eagle | Naga",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "desert_eagle_naga.png",
+        "stattrak": true
+      },
+      {
+        "name": "Malachite",
+        "fullName": "MAC-10 | Malachite",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "mac_10_malachite.png",
+        "stattrak": true
+      },
+      {
+        "name": "Serenity",
+        "fullName": "Sawed-Off | Serenity",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "sawed_off_serenity.png",
+        "stattrak": true
+      },
+      {
+        "name": "Cartel",
+        "fullName": "AK-47 | Cartel",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "ak_47_cartel.png",
+        "stattrak": true
+      },
+      {
+        "name": "龍王 (Dragon King)",
+        "fullName": "M4A4 | 龍王 (Dragon King)",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "m4a4_dragon_king.png",
+        "stattrak": true
+      },
+      {
+        "name": "Muertos",
+        "fullName": "P250 | Muertos",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "p250_muertos.png",
+        "stattrak": true
+      },
+      {
+        "name": "Man-o'-war",
+        "fullName": "AWP | Man-o'-war",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "awp_man_o_war.png",
+        "stattrak": true
+      },
+      {
+        "name": "Chatterbox",
+        "fullName": "Galil AR | Chatterbox",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "galil_ar_chatterbox.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Bayonet | Doppler",
+        "fullName": "★ Bayonet | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "bayonet_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Flip Knife | Doppler",
+        "fullName": "★ Flip Knife | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "flip_knife_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Gut Knife | Doppler",
+        "fullName": "★ Gut Knife | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "gut_knife_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Karambit | Doppler",
+        "fullName": "★ Karambit | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "karambit_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ M9 Bayonet | Doppler",
+        "fullName": "★ M9 Bayonet | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "m9_bayonet_doppler.png",
+        "stattrak": true
+      }
+    ]
+  },
+  {
+    "name": "Dreams & Nightmares Case",
+    "image": "dreams_case.png",
+    "skins": [
+      {
+        "name": "Scrawl",
+        "fullName": "Five-SeveN | Scrawl",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "five_seven_scrawl.png",
+        "stattrak": true
+      },
+      {
+        "name": "Ensnared",
+        "fullName": "MAC-10 | Ensnared",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mac_10_ensnared.png",
+        "stattrak": true
+      },
+      {
+        "name": "Foresight",
+        "fullName": "MAG-7 | Foresight",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mag_7_foresight.png",
+        "stattrak": true
+      },
+      {
+        "name": "Necro Jr.",
+        "fullName": "MP5-SD | Necro Jr.",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mp5_sd_necro_jr.png",
+        "stattrak": true
+      },
+      {
+        "name": "Lifted Spirits",
+        "fullName": "P2000 | Lifted Spirits",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "p2000_lifted_spirits.png",
+        "stattrak": true
+      },
+      {
+        "name": "Poultrygeist",
+        "fullName": "SCAR-20 | Poultrygeist",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "scar_20_poultrygeist.png",
+        "stattrak": true
+      },
+      {
+        "name": "Spirit Board",
+        "fullName": "Sawed-Off | Spirit Board",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "sawed_off_spirit_board.png",
+        "stattrak": true
+      },
+      {
+        "name": "Space Cat",
+        "fullName": "PP-Bizon | Space Cat",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "pp_bizon_space_cat.png",
+        "stattrak": true
+      },
+      {
+        "name": "Dream Glade",
+        "fullName": "G3SG1 | Dream Glade",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "g3sg1_dream_glade.png",
+        "stattrak": true
+      },
+      {
+        "name": "Night Terror",
+        "fullName": "M4A1-S | Night Terror",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "m4a1_s_night_terror.png",
+        "stattrak": true
+      },
+      {
+        "name": "Zombie Offensive",
+        "fullName": "XM1014 | Zombie Offensive",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "xm1014_zombie_offensive.png",
+        "stattrak": true
+      },
+      {
+        "name": "Ticket to Hell",
+        "fullName": "USP-S | Ticket to Hell",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "usp_s_ticket_to_hell.png",
+        "stattrak": true
+      },
+      {
+        "name": "Melondrama",
+        "fullName": "Dual Berettas | Melondrama",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "dual_berettas_melondrama.png",
+        "stattrak": true
+      },
+      {
+        "name": "Rapid Eye Movement",
+        "fullName": "FAMAS | Rapid Eye Movement",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "famas_rapid_eye_movement.png",
+        "stattrak": true
+      },
+      {
+        "name": "Abyssal Apparition",
+        "fullName": "MP7 | Abyssal Apparition",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "mp7_abyssal_apparition.png",
+        "stattrak": true
+      },
+      {
+        "name": "Nightwish",
+        "fullName": "AK-47 | Nightwish",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "ak_47_nightwish.png",
+        "stattrak": true
+      },
+      {
+        "name": "Starlight Protector",
+        "fullName": "MP9 | Starlight Protector",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "mp9_starlight_protector.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Bowie Knife | Gamma Doppler",
+        "fullName": "★ Bowie Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "bowie_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Butterfly Knife | Gamma Doppler",
+        "fullName": "★ Butterfly Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "butterfly_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Falchion Knife | Gamma Doppler",
+        "fullName": "★ Falchion Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "falchion_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Huntsman Knife | Gamma Doppler",
+        "fullName": "★ Huntsman Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "huntsman_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Shadow Daggers | Gamma Doppler",
+        "fullName": "★ Shadow Daggers | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "shadow_daggers_gamma_doppler.png",
+        "stattrak": true
+      }
+    ]
+  },
+  {
+    "name": "Falchion Case",
+    "image": "falchion_case.png",
+    "skins": [
+      {
+        "name": "Rocket Pop",
+        "fullName": "Galil AR | Rocket Pop",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "galil_ar_rocket_pop.png",
+        "stattrak": true
+      },
+      {
+        "name": "Bunsen Burner",
+        "fullName": "Glock-18 | Bunsen Burner",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "glock_18_bunsen_burner.png",
+        "stattrak": true
+      },
+      {
+        "name": "Ranger",
+        "fullName": "Nova | Ranger",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "nova_ranger.png",
+        "stattrak": true
+      },
+      {
+        "name": "Elite Build",
+        "fullName": "P90 | Elite Build",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "p90_elite_build.png",
+        "stattrak": true
+      },
+      {
+        "name": "Riot",
+        "fullName": "UMP-45 | Riot",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "ump_45_riot.png",
+        "stattrak": true
+      },
+      {
+        "name": "Torque",
+        "fullName": "USP-S | Torque",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "usp_s_torque.png",
+        "stattrak": true
+      },
+      {
+        "name": "Neural Net",
+        "fullName": "FAMAS | Neural Net",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "famas_neural_net.png",
+        "stattrak": true
+      },
+      {
+        "name": "Evil Daimyo",
+        "fullName": "M4A4 | Evil Daimyo",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "m4a4_evil_daimyo.png",
+        "stattrak": true
+      },
+      {
+        "name": "Ruby Poison Dart",
+        "fullName": "MP9 | Ruby Poison Dart",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "mp9_ruby_poison_dart.png",
+        "stattrak": true
+      },
+      {
+        "name": "Loudmouth",
+        "fullName": "Negev | Loudmouth",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "negev_loudmouth.png",
+        "stattrak": true
+      },
+      {
+        "name": "Handgun",
+        "fullName": "P2000 | Handgun",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "p2000_handgun.png",
+        "stattrak": true
+      },
+      {
+        "name": "Yellow Jacket",
+        "fullName": "CZ75-Auto | Yellow Jacket",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "cz75_auto_yellow_jacket.png",
+        "stattrak": true
+      },
+      {
+        "name": "Nemesis",
+        "fullName": "MP7 | Nemesis",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "mp7_nemesis.png",
+        "stattrak": true
+      },
+      {
+        "name": "Cyrex",
+        "fullName": "SG 553 | Cyrex",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "sg_553_cyrex.png",
+        "stattrak": true
+      },
+      {
+        "name": "Aquamarine Revenge",
+        "fullName": "AK-47 | Aquamarine Revenge",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "ak_47_aquamarine_revenge.png",
+        "stattrak": true
+      },
+      {
+        "name": "Hyper Beast",
+        "fullName": "AWP | Hyper Beast",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "awp_hyper_beast.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Falchion Knife | Fade",
+        "fullName": "★ Falchion Knife | Fade",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "falchion_knife_fade.png",
+        "stattrak": true
+      }
+    ]
+  },
+  {
+    "name": "Kilowatt Case",
+    "image": "kilowatt_case.png",
+    "skins": [
+      {
+        "name": "Hideout",
+        "fullName": "Dual Berettas | Hideout",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "dual_berettas_hideout.png",
+        "stattrak": true
+      },
+      {
+        "name": "Light Box",
+        "fullName": "MAC-10 | Light Box",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mac_10_light_box.png",
+        "stattrak": true
+      },
+      {
+        "name": "Dark Sigil",
+        "fullName": "Nova | Dark Sigil",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "nova_dark_sigil.png",
+        "stattrak": true
+      },
+      {
+        "name": "Dezastre",
+        "fullName": "SSG 08 | Dezastre",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "ssg_08_dezastre.png",
+        "stattrak": true
+      },
+      {
+        "name": "Slag",
+        "fullName": "Tec-9 | Slag",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "tec_9_slag.png",
+        "stattrak": true
+      },
+      {
+        "name": "Motorized",
+        "fullName": "UMP-45 | Motorized",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "ump_45_motorized.png",
+        "stattrak": true
+      },
+      {
+        "name": "Irezumi",
+        "fullName": "XM1014 | Irezumi",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "xm1014_irezumi.png",
+        "stattrak": true
+      },
+      {
+        "name": "Block-18",
+        "fullName": "Glock-18 | Block-18",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "glock_18_block_18.png",
+        "stattrak": true
+      },
+      {
+        "name": "Etch Lord",
+        "fullName": "M4A4 | Etch Lord",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "m4a4_etch_lord.png",
+        "stattrak": true
+      },
+      {
+        "name": "Hybrid",
+        "fullName": "Five-SeveN | Hybrid",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "five_seven_hybrid.png",
+        "stattrak": true
+      },
+      {
+        "name": "Just Smile",
+        "fullName": "MP7 | Just Smile",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "mp7_just_smile.png",
+        "stattrak": true
+      },
+      {
+        "name": "Analog Input",
+        "fullName": "Sawed-Off | Analog Input",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "sawed_off_analog_input.png",
+        "stattrak": true
+      },
+      {
+        "name": "Black Lotus",
+        "fullName": "M4A1-S | Black Lotus",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "m4a1_s_black_lotus.png",
+        "stattrak": true
+      },
+      {
+        "name": "Olympus",
+        "fullName": "Zeus x27 | Olympus",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "zeus_x27_olympus.png",
+        "stattrak": true
+      },
+      {
+        "name": "Jawbreaker",
+        "fullName": "USP-S | Jawbreaker",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "usp_s_jawbreaker.png",
+        "stattrak": true
+      },
+      {
+        "name": "Chrome Cannon",
+        "fullName": "AWP | Chrome Cannon",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "awp_chrome_cannon.png",
+        "stattrak": true
+      },
+      {
+        "name": "Inheritance",
+        "fullName": "AK-47 | Inheritance",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "ak_47_inheritance.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Kukri Knife | Fade",
+        "fullName": "★ Kukri Knife | Fade",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "kukri_knife_fade.png",
+        "stattrak": true
+      }
+    ]
+  },
+  {
+    "name": "Operation Riptide Case",
+    "image": "operation_riptide_case.png",
+    "skins": [
+      {
+        "name": "Plague",
+        "fullName": "AUG | Plague",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "aug_plague.png",
+        "stattrak": true
+      },
+      {
+        "name": "Tread",
+        "fullName": "Dual Berettas | Tread",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "dual_berettas_tread.png",
+        "stattrak": true
+      },
+      {
+        "name": "Keeping Tabs",
+        "fullName": "G3SG1 | Keeping Tabs",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "g3sg1_keeping_tabs.png",
+        "stattrak": true
+      },
+      {
+        "name": "Guerrilla",
+        "fullName": "MP7 | Guerrilla",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mp7_guerrilla.png",
+        "stattrak": true
+      },
+      {
+        "name": "Lumen",
+        "fullName": "PP-Bizon | Lumen",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "pp_bizon_lumen.png",
+        "stattrak": true
+      },
+      {
+        "name": "Black Lotus",
+        "fullName": "USP-S | Black Lotus",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "usp_s_black_lotus.png",
+        "stattrak": true
+      },
+      {
+        "name": "Watchdog",
+        "fullName": "XM1014 | Watchdog",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "xm1014_watchdog.png",
+        "stattrak": true
+      },
+      {
+        "name": "BI83 Spectrum",
+        "fullName": "MAG-7 | BI83 Spectrum",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "mag_7_bi83_spectrum.png",
+        "stattrak": true
+      },
+      {
+        "name": "ZX Spectron",
+        "fullName": "FAMAS | ZX Spectron",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "famas_zx_spectron.png",
+        "stattrak": true
+      },
+      {
+        "name": "Boost Protocol",
+        "fullName": "Five-SeveN | Boost Protocol",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "five_seven_boost_protocol.png",
+        "stattrak": true
+      },
+      {
+        "name": "Mount Fuji",
+        "fullName": "MP9 | Mount Fuji",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "mp9_mount_fuji.png",
+        "stattrak": true
+      },
+      {
+        "name": "Spider Lily",
+        "fullName": "M4A4 | Spider Lily",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "m4a4_spider_lily.png",
+        "stattrak": true
+      },
+      {
+        "name": "Toybox",
+        "fullName": "MAC-10 | Toybox",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "mac_10_toybox.png",
+        "stattrak": true
+      },
+      {
+        "name": "Snack Attack",
+        "fullName": "Glock-18 | Snack Attack",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "glock_18_snack_attack.png",
+        "stattrak": true
+      },
+      {
+        "name": "Turbo Peek",
+        "fullName": "SSG 08 | Turbo Peek",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "ssg_08_turbo_peek.png",
+        "stattrak": true
+      },
+      {
+        "name": "Leet Museo",
+        "fullName": "AK-47 | Leet Museo",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "ak_47_leet_museo.png",
+        "stattrak": true
+      },
+      {
+        "name": "Ocean Drive",
+        "fullName": "Desert Eagle | Ocean Drive",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "desert_eagle_ocean_drive.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Bowie Knife | Gamma Doppler",
+        "fullName": "★ Bowie Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "bowie_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Butterfly Knife | Gamma Doppler",
+        "fullName": "★ Butterfly Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "butterfly_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Falchion Knife | Gamma Doppler",
+        "fullName": "★ Falchion Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "falchion_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Huntsman Knife | Gamma Doppler",
+        "fullName": "★ Huntsman Knife | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "huntsman_knife_gamma_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Shadow Daggers | Gamma Doppler",
+        "fullName": "★ Shadow Daggers | Gamma Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "shadow_daggers_gamma_doppler.png",
+        "stattrak": true
+      }
+    ]
+  },
+  {
+    "name": "Prisma Case",
+    "image": "prisma_case.png",
+    "skins": [
+      {
+        "name": "Crypsis",
+        "fullName": "FAMAS | Crypsis",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "famas_crypsis.png",
+        "stattrak": true
+      },
+      {
+        "name": "Uncharted",
+        "fullName": "AK-47 | Uncharted",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "ak_47_uncharted.png",
+        "stattrak": true
+      },
+      {
+        "name": "Whitefish",
+        "fullName": "MAC-10 | Whitefish",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mac_10_whitefish.png",
+        "stattrak": true
+      },
+      {
+        "name": "Akoben",
+        "fullName": "Galil AR | Akoben",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "galil_ar_akoben.png",
+        "stattrak": true
+      },
+      {
+        "name": "Mischief",
+        "fullName": "MP7 | Mischief",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mp7_mischief.png",
+        "stattrak": true
+      },
+      {
+        "name": "Verdigris",
+        "fullName": "P250 | Verdigris",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "p250_verdigris.png",
+        "stattrak": true
+      },
+      {
+        "name": "Off World",
+        "fullName": "P90 | Off World",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "p90_off_world.png",
+        "stattrak": true
+      },
+      {
+        "name": "Atheris",
+        "fullName": "AWP | Atheris",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "awp_atheris.png",
+        "stattrak": true
+      },
+      {
+        "name": "Bamboozle",
+        "fullName": "Tec-9 | Bamboozle",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "tec_9_bamboozle.png",
+        "stattrak": true
+      },
+      {
+        "name": "Light Rail",
+        "fullName": "Desert Eagle | Light Rail",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "desert_eagle_light_rail.png",
+        "stattrak": true
+      },
+      {
+        "name": "Gauss",
+        "fullName": "MP5-SD | Gauss",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "mp5_sd_gauss.png",
+        "stattrak": true
+      },
+      {
+        "name": "Moonrise",
+        "fullName": "UMP-45 | Moonrise",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "ump_45_moonrise.png",
+        "stattrak": true
+      },
+      {
+        "name": "Skull Crusher",
+        "fullName": "R8 Revolver | Skull Crusher",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "r8_revolver_skull_crusher.png",
+        "stattrak": true
+      },
+      {
+        "name": "Momentum",
+        "fullName": "AUG | Momentum",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "aug_momentum.png",
+        "stattrak": true
+      },
+      {
+        "name": "Incinegator",
+        "fullName": "XM1014 | Incinegator",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "xm1014_incinegator.png",
+        "stattrak": true
+      },
+      {
+        "name": "Angry Mob",
+        "fullName": "Five-SeveN | Angry Mob",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "five_seven_angry_mob.png",
+        "stattrak": true
+      },
+      {
+        "name": "The Emperor",
+        "fullName": "M4A4 | The Emperor",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "m4a4_the_emperor.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Navaja Knife | Doppler",
+        "fullName": "★ Navaja Knife | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "navaja_knife_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Stiletto Knife | Doppler",
+        "fullName": "★ Stiletto Knife | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "stiletto_knife_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Talon Knife | Doppler",
+        "fullName": "★ Talon Knife | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "talon_knife_doppler.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Ursus Knife | Doppler",
+        "fullName": "★ Ursus Knife | Doppler",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "ursus_knife_doppler.png",
+        "stattrak": true
+      }
+    ]
+  },
+  {
+    "name": "Recoil Case",
+    "image": "recoil_case.png",
+    "skins": [
+      {
+        "name": "Meow 36",
+        "fullName": "FAMAS | Meow 36",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "famas_meow_36.png",
+        "stattrak": true
+      },
+      {
+        "name": "Destroyer",
+        "fullName": "Galil AR | Destroyer",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "galil_ar_destroyer.png",
+        "stattrak": true
+      },
+      {
+        "name": "Poly Mag",
+        "fullName": "M4A4 | Poly Mag",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "m4a4_poly_mag.png",
+        "stattrak": true
+      },
+      {
+        "name": "Monkeyflage",
+        "fullName": "MAC-10 | Monkeyflage",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mac_10_monkeyflage.png",
+        "stattrak": true
+      },
+      {
+        "name": "Drop Me",
+        "fullName": "Negev | Drop Me",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "negev_drop_me.png",
+        "stattrak": true
+      },
+      {
+        "name": "Roadblock",
+        "fullName": "UMP-45 | Roadblock",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "ump_45_roadblock.png",
+        "stattrak": true
+      },
+      {
+        "name": "Winterized",
+        "fullName": "Glock-18 | Winterized",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "glock_18_winterized.png",
+        "stattrak": true
+      },
+      {
+        "name": "Crazy 8",
+        "fullName": "R8 Revolver | Crazy 8",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "r8_revolver_crazy_8.png",
+        "stattrak": true
+      },
+      {
+        "name": "Downtown",
+        "fullName": "M249 | Downtown",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "m249_downtown.png",
+        "stattrak": true
+      },
+      {
+        "name": "Dragon Tech",
+        "fullName": "SG 553 | Dragon Tech",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "sg_553_dragon_tech.png",
+        "stattrak": true
+      },
+      {
+        "name": "Vent Rush",
+        "fullName": "P90 | Vent Rush",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "p90_vent_rush.png",
+        "stattrak": true
+      },
+      {
+        "name": "Flora Carnivora",
+        "fullName": "Dual Berettas | Flora Carnivora",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "dual_berettas_flora_carnivora.png",
+        "stattrak": true
+      },
+      {
+        "name": "Ice Coaled",
+        "fullName": "AK-47 | Ice Coaled",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "ak_47_ice_coaled.png",
+        "stattrak": true
+      },
+      {
+        "name": "Visions",
+        "fullName": "P250 | Visions",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "p250_visions.png",
+        "stattrak": true
+      },
+      {
+        "name": "Kiss♥Love",
+        "fullName": "Sawed-Off | Kiss♥Love",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "sawed_off_kiss_love.png",
+        "stattrak": true
+      },
+      {
+        "name": "Printstream",
+        "fullName": "USP-S | Printstream",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "usp_s_printstream.png",
+        "stattrak": true
+      },
+      {
+        "name": "Chromatic Aberration",
+        "fullName": "AWP | Chromatic Aberration",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "awp_chromatic_aberration.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Broken Fang Gloves | Yellow-banded",
+        "fullName": "★ Broken Fang Gloves | Yellow-banded",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "broken_fang_gloves_yellow_banded.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Driver Gloves | Snow Leopard",
+        "fullName": "★ Driver Gloves | Snow Leopard",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "driver_gloves_snow_leopard.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Hand Wraps | CAUTION!",
+        "fullName": "★ Hand Wraps | CAUTION!",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "hand_wraps_caution.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Moto Gloves | Blood Pressure",
+        "fullName": "★ Moto Gloves | Blood Pressure",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "moto_gloves_blood_pressure.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Specialist Gloves | Marble Fade",
+        "fullName": "★ Specialist Gloves | Marble Fade",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "specialist_gloves_marble_fade.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Sport Gloves | Slingshot",
+        "fullName": "★ Sport Gloves | Slingshot",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "sport_gloves_slingshot.png",
+        "stattrak": true
+      }
+    ]
+  },
+  {
+    "name": "Revolution Case",
+    "image": "revolution_case.png",
+    "skins": [
+      {
+        "name": "Insomnia",
+        "fullName": "MAG-7 | Insomnia",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mag_7_insomnia.png",
+        "stattrak": true
+      },
+      {
+        "name": "Featherweight",
+        "fullName": "MP9 | Featherweight",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mp9_featherweight.png",
+        "stattrak": true
+      },
+      {
+        "name": "Fragments",
+        "fullName": "SCAR-20 | Fragments",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "scar_20_fragments.png",
+        "stattrak": true
+      },
+      {
+        "name": "Re.built",
+        "fullName": "P250 | Re.built",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "p250_re_built.png",
+        "stattrak": true
+      },
+      {
+        "name": "Liquidation",
+        "fullName": "MP5-SD | Liquidation",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "mp5_sd_liquidation.png",
+        "stattrak": true
+      },
+      {
+        "name": "Cyberforce",
+        "fullName": "SG 553 | Cyberforce",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "sg_553_cyberforce.png",
+        "stattrak": true
+      },
+      {
+        "name": "Rebel",
+        "fullName": "Tec-9 | Rebel",
+        "rarityName": "Mil-Spec Grade",
+        "rarityId": "milspec",
+        "image": "tec_9_rebel.png",
+        "stattrak": true
+      },
+      {
+        "name": "Emphorosaur-S",
+        "fullName": "M4A1-S | Emphorosaur-S",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "m4a1_s_emphorosaur_s.png",
+        "stattrak": true
+      },
+      {
+        "name": "Umbral Rabbit",
+        "fullName": "Glock-18 | Umbral Rabbit",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "glock_18_umbral_rabbit.png",
+        "stattrak": true
+      },
+      {
+        "name": "Sakkaku",
+        "fullName": "MAC-10 | Sakkaku",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "mac_10_sakkaku.png",
+        "stattrak": true
+      },
+      {
+        "name": "Banana Cannon",
+        "fullName": "R8 Revolver | Banana Cannon",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "r8_revolver_banana_cannon.png",
+        "stattrak": true
+      },
+      {
+        "name": "Neoqueen",
+        "fullName": "P90 | Neoqueen",
+        "rarityName": "Restricted",
+        "rarityId": "restricted",
+        "image": "p90_neoqueen.png",
+        "stattrak": true
+      },
+      {
+        "name": "Duality",
+        "fullName": "AWP | Duality",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "awp_duality.png",
+        "stattrak": true
+      },
+      {
+        "name": "Wild Child",
+        "fullName": "UMP-45 | Wild Child",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "ump_45_wild_child.png",
+        "stattrak": true
+      },
+      {
+        "name": "Wicked Sick",
+        "fullName": "P2000 | Wicked Sick",
+        "rarityName": "Classified",
+        "rarityId": "classified",
+        "image": "p2000_wicked_sick.png",
+        "stattrak": true
+      },
+      {
+        "name": "Temukau",
+        "fullName": "M4A4 | Temukau",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "m4a4_temukau.png",
+        "stattrak": true
+      },
+      {
+        "name": "Head Shot",
+        "fullName": "AK-47 | Head Shot",
+        "rarityName": "Covert",
+        "rarityId": "covert",
+        "image": "ak_47_head_shot.png",
+        "stattrak": true
+      }
+    ],
+    "specialPool": [
+      {
+        "name": "★ Driver Gloves | Imperial Plaid",
+        "fullName": "★ Driver Gloves | Imperial Plaid",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "driver_gloves_imperial_plaid.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Hand Wraps | Cobalt Skulls",
+        "fullName": "★ Hand Wraps | Cobalt Skulls",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "hand_wraps_cobalt_skulls.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Hydra Gloves | Case Hardened",
+        "fullName": "★ Hydra Gloves | Case Hardened",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "hydra_gloves_case_hardened.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Moto Gloves | POW!",
+        "fullName": "★ Moto Gloves | POW!",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "moto_gloves_pow.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Specialist Gloves | Fade",
+        "fullName": "★ Specialist Gloves | Fade",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "specialist_gloves_fade.png",
+        "stattrak": true
+      },
+      {
+        "name": "★ Sport Gloves | Vice",
+        "fullName": "★ Sport Gloves | Vice",
+        "rarityName": "Rare Special Item",
+        "rarityId": "extraordinary",
+        "image": "sport_gloves_vice.png",
+        "stattrak": true
+      }
+    ]
+  }
+]

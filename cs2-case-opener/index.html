@@ -27,6 +27,8 @@
       />
     </noscript>
     <link rel="stylesheet" href="./src/style.css" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0f1726" />
   </head>
   <body>
     <script>
@@ -46,13 +48,17 @@
         <p class="eyebrow">Counter-Strike 2</p>
         <h1 class="logo">Case Opener Simulator</h1>
       </div>
-      <div class="session-stats">
+      <div class="header-actions">
+        <button id="muteBtn" class="mute-btn" type="button" aria-label="Toggle sound" title="Toggle sound">🔇</button>
+        <button id="inventoryBtn" class="open-btn ghost header-btn" type="button">Inventory</button>
+        <div class="session-stats">
         <span id="totalOpened">Opened: 0</span>
         <span id="bestDrop">Best: None</span>
+        </div>
       </div>
     </header>
 
-    <main class="shell">
+    <main class="shell home-grid">
       <section class="panel">
         <div class="panel-head">
           <h2>Select A Case</h2>
@@ -61,42 +67,67 @@
         <div id="caseGrid" class="case-grid"></div>
       </section>
 
-      <section id="spinnerSection" class="panel spinner-section hidden" aria-live="polite">
-        <div class="panel-head compact">
-          <h2 id="selectedCaseName">No Case Selected</h2>
-          <p>Open once for full animation or 10x for instant batch.</p>
+      <section id="progressPanel" class="panel progress-panel-host" aria-label="Progress overview"></section>
+
+      <section class="panel trade-up-launcher">
+        <div class="trade-up-launcher-info">
+          <h2>Trade-Up Contract</h2>
+          <p>Combine 10 same-rarity items to forge one of the next tier.</p>
         </div>
-
-        <div id="spinnerContainer" class="spinner-container"></div>
-
-        <div class="open-actions">
-          <button id="openBtn" class="open-btn">Open Case</button>
-          <button id="openX10Btn" class="open-btn ghost">Open x10</button>
-        </div>
-
-        <div id="batchResults" class="batch-results hidden"></div>
-      </section>
-
-      <section class="panel inventory-section">
-        <div class="panel-head compact">
-          <h2>Your Inventory <span id="inventoryCount">(0 items)</span></h2>
-          <button id="clearInventoryBtn" class="tiny-btn">Clear</button>
-        </div>
-        <div id="inventoryGrid" class="inventory-grid"></div>
+        <button id="openTradeUpBtn" type="button" class="open-btn trade-up-launch-btn">Open Trade-Up</button>
       </section>
     </main>
 
-    <div id="resultModal" class="result-modal hidden" role="dialog" aria-modal="true" aria-label="Drop Result">
-      <div class="modal-content">
-        <div id="resultRarityBanner" class="rarity-banner"></div>
-        <img id="resultImage" class="result-image" src="" alt="Skin image" />
-        <div id="resultName" class="result-name"></div>
-        <div id="resultWear" class="result-wear"></div>
-        <div id="resultFloat" class="result-float"></div>
-        <div id="resultStattrak" class="result-stattrak hidden">StatTrak</div>
-        <button id="closeResultBtn" class="open-btn modal-btn">Add To Inventory</button>
+    <section id="tradeUpWindow" class="app-window hidden" aria-hidden="true">
+      <div class="window-shell trade-up-window-shell">
+        <div class="window-topbar">
+          <div>
+            <h2>Trade-Up Contract</h2>
+            <p>Combine 10 same-rarity items to forge one of the next tier.</p>
+          </div>
+          <button id="closeTradeUpWindowBtn" class="tiny-btn" type="button">Close</button>
+        </div>
+        <div id="tradeUpPanel" class="trade-up-panel-host" aria-label="Trade-Up Contract"></div>
       </div>
-    </div>
+    </section>
+
+    <section id="caseWindow" class="app-window hidden" aria-hidden="true">
+      <div class="window-shell case-window-shell">
+        <div class="window-topbar">
+          <div>
+            <h2 id="selectedCaseName">No Case Selected</h2>
+            <p>Contains one of the following:</p>
+          </div>
+          <button id="closeCaseWindowBtn" class="tiny-btn" type="button">Close</button>
+        </div>
+
+        <div id="casePreview" class="case-preview"></div>
+        <div id="spinnerContainer" class="spinner-container hidden"></div>
+
+        <div class="open-actions">
+          <button id="openBtn" class="open-btn" type="button">Open Case</button>
+        </div>
+
+        <div id="batchResults" class="batch-results hidden"></div>
+      </div>
+    </section>
+
+    <section id="inventoryWindow" class="app-window hidden" aria-hidden="true">
+      <div class="window-shell inventory-window-shell">
+        <div class="window-topbar">
+          <div>
+            <h2>Your Inventory <span id="inventoryCount">(0 items)</span></h2>
+            <p>All collected weapons are stored here.</p>
+          </div>
+          <div class="window-actions">
+            <button id="closeInventoryBtn" class="tiny-btn" type="button">Close</button>
+          </div>
+        </div>
+        <div id="inventoryGrid" class="inventory-panel"></div>
+      </div>
+    </section>
+
+    <div id="resultModal" class="result-modal hidden" role="dialog" aria-modal="true" aria-label="Drop Result"></div>
 
     <script type="module" src="./src/main.js"></script>
   </body>

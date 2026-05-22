@@ -6,14 +6,37 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check:images": "node check-images.js",
-    "download:images": "node download-images.js"
+    "check:images": "node tools/check-images.js",
+    "download:images": "node tools/download-images.js",
+    "download:images:v2": "node tools/download-images-v2.js",
+    "sync:api": "node tools/sync-from-api.js",
+    "sync:prices": "node tools/sync-prices.js",
+    "analyze": "vite build --sourcemap && source-map-explorer dist/assets/index-*.js",
+    "find:placeholders": "node tools/find-placeholders.js",
+    "verify:assets": "node tools/verify-assets.js",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "audit": "npm audit --json",
+    "lighthouse": "lighthouse http://localhost:5173 --output=json --output-path=./lighthouse-report.json",
+    "axe": "node scripts/run-axe.js",
+    "scan": "npm run lint && npm run test && npm run build && npm run audit && npm run lighthouse && npm run axe"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "vite": "^8.0.12"
+    "@axe-core/playwright": "^4.11.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^10.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsdoc": "^63.0.0",
+    "lighthouse": "^13.3.0",
+    "prettier": "^3.8.3",
+    "source-map-explorer": "^2.5.3",
+    "vite": "^8.0.12",
+    "vitest": "^4.1.7"
   }
 }
