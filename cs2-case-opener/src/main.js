@@ -428,10 +428,3 @@ renderAll();
 showToast(`Welcome back. ${CASES.length} cases loaded.`, 'info');
 track('app_loaded', { cases: CASES.length, isGuest: true });
 
-// Register service worker for offline shell + image cache.
-if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
-  });
-}
-

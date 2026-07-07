@@ -1,6 +1,5 @@
 import { assetPath } from '../utils/assetPath.js';
 import { RARITY } from './rarityConfig.js';
-import RAW_CASES from './cases.generated.json';
 import { PRICES } from './prices.generated.js';
 import { KEY_COST } from './economy.js';
 
@@ -90,6 +89,16 @@ function convertCase(rawCase) {
   });
 }
 
+async function loadRawCases() {
+  const response = await fetch(new URL('./cases.generated.json', import.meta.url));
+  if (!response.ok) {
+    throw new Error(`Failed to load case data: ${response.status} ${response.statusText}`);
+  }
+
+  return response.json();
+}
+
+const RAW_CASES = await loadRawCases();
 export const CASES = Object.freeze(RAW_CASES.map(convertCase));
 
 export function getCaseById(id) {
