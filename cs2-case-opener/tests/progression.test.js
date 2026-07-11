@@ -11,6 +11,53 @@ beforeEach(() => {
   };
 });
 
+describe('claimDailyReward streak logic', () => {
+  it('blocks duplicate claims on the same UTC day', async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-07-01T10:00:00.000Z'));
+
+    const { claimDailyReward } = await import('../src/store/progression.js');
+    const first = claimDailyReward();
+    const second = claimDailyReward();
+
+    expect(first).not.toBeNull();
+    expect(second).toBeNull();
+    vi.useRealTimers();
+  });
+
+  it('increments streak only when the previous claim was yesterday', async () => {
+    vi.useFakeTimers();
+    const { claimDailyReward, getProgressionState } = await import('../src/store/progression.js');
+
+    vi.setSystemTime(new Date('2026-07-01T10:00:00.000Z'));
+    claimDailyReward();
+    expect(getProgressionState().currentStreak).toBe(1);
+
+    vi.setSystemTime(new Date('2026-07-02T10:00:00.000Z'));
+    claimDailyReward();
+    expect(getProgressionState().currentStreak).toBe(2);
+
+    vi.useRealTimers();
+  });
+
+  it('resets streak to day 1 after missing at least one day', async () => {
+    vi.useFakeTimers();
+    const { claimDailyReward, getProgressionState } = await import('../src/store/progression.js');
+
+    vi.setSystemTime(new Date('2026-07-01T10:00:00.000Z'));
+    claimDailyReward();
+    vi.setSystemTime(new Date('2026-07-02T10:00:00.000Z'));
+    claimDailyReward();
+    expect(getProgressionState().currentStreak).toBe(2);
+
+    vi.setSystemTime(new Date('2026-07-05T10:00:00.000Z'));
+    claimDailyReward();
+    expect(getProgressionState().currentStreak).toBe(1);
+
+    vi.useRealTimers();
+  });
+});
+
 describe('recordCaseOpen', () => {
   it('increments the "open N cases" mission once per open', async () => {
     const { recordCaseOpen, getMissions } = await import('../src/store/progression.js');

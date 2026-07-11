@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CS2 Case Opener Simulator</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101624'/%3E%3Cpath d='M18 22h28v20H18z' fill='%23f5b94c' fill-opacity='.18'/%3E%3Cpath d='M22 18h20l6 8H16z' fill='%23f5b94c'/%3E%3Cpath d='M20 26h24v18H20z' fill='%232d3f60'/%3E%3Cpath d='M26 32h12v4H26z' fill='%23ecf4ff'/%3E%3C/svg%3E" />
     <script>
       (function () {
         var isLiveServer = window.location.port === '5500';
@@ -15,14 +16,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Sora:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Sora:wght@300;400;600;700&display=swap"
       rel="preload"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Sora:wght@300;400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Sora:wght@300;400;600;700&display=swap"
         rel="stylesheet"
       />
     </noscript>
@@ -32,7 +33,6 @@
   <body>
     <script>
       if (window.location.protocol === 'file:') {
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101624'/%3E%3Cpath d='M18 22h28v20H18z' fill='%23f5b94c' fill-opacity='.18'/%3E%3Cpath d='M22 18h20l6 8H16z' fill='%23f5b94c'/%3E%3Cpath d='M20 26h24v18H20z' fill='%232d3f60'/%3E%3Cpath d='M26 32h12v4H26z' fill='%23ecf4ff'/%3E%3C/svg%3E" />
         document.body.innerHTML =
           '<div style="font-family:Arial,sans-serif;max-width:760px;margin:48px auto;padding:24px;border:1px solid #ddd;border-radius:10px;line-height:1.5">' +
           '<h1 style="margin-top:0">Run This App With Vite</h1>' +
@@ -57,6 +57,21 @@
         </div>
       </div>
     </header>
+
+    <section class="shell tactical-strip" aria-label="Session status">
+      <div class="tactical-item">
+        <span class="tactical-label">Feed</span>
+        <strong id="statusOnline" class="tactical-value">Standby</strong>
+      </div>
+      <div class="tactical-item">
+        <span class="tactical-label">Session Value</span>
+        <strong id="statusSessionEv" class="tactical-value">€0.00</strong>
+      </div>
+      <div class="tactical-item">
+        <span class="tactical-label">Last Rare</span>
+        <strong id="statusLastRare" class="tactical-value">No rare drop yet</strong>
+      </div>
+    </section>
 
     <main class="shell home-grid">
       <section class="panel">

@@ -15,6 +15,12 @@ function todayKey() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function previousDayKey(key) {
+  const date = new Date(`${key}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() - 1);
+  return date.toISOString().slice(0, 10);
+}
+
 function emitChange(detail) {
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('progression:updated', { detail }));
@@ -150,7 +156,15 @@ export function claimDailyReward() {
     return null;
   }
 
-  state.currentStreak = state.lastDailyClaimDate === key ? state.currentStreak : Math.min(7, state.currentStreak + 1 || 1);
+  const yesterday = previousDayKey(key);
+  if (!state.lastDailyClaimDate) {
+    state.currentStreak = 1;
+  } else if (state.lastDailyClaimDate === yesterday) {
+    state.currentStreak = Math.min(7, (Number(state.currentStreak) || 0) + 1);
+  } else {
+    // Missed at least one day: restart streak from day 1.
+    state.currentStreak = 1;
+  }
   state.lastDailyClaimDate = key;
   const streakIndex = Math.max(0, Math.min(STREAK_BONUS.length - 1, state.currentStreak - 1));
   const coins = DAILY_REWARD_COINS + (STREAK_BONUS[streakIndex] ?? 0);

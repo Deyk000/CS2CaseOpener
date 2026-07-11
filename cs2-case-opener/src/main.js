@@ -1,7 +1,7 @@
 import { CASES, getCaseById } from './data/cases.js';
 import { claimDailyReward, getMissions, getProgressionState, addXp, recordCaseOpen, getNextLevelReward } from './store/progression.js';
 import { add as addInventoryItem, getAll as getInventoryItems, sell as sellInventoryItem, remove as removeInventoryItem } from './store/inventory.js';
-import { recordOpenResult, getBestDrop } from './store/history.js';
+import { recordOpenResult, getBestDrop, getRecent } from './store/history.js';
 import { getBalance, earn, spend, canAfford } from './store/wallet.js';
 import { ensureGuestSession } from './auth/session.js';
 import { ensureAuthSession } from './auth/authModal.js';
@@ -44,6 +44,9 @@ const totalOpenedLabel = document.getElementById('totalOpened');
 const bestDropLabel = document.getElementById('bestDrop');
 const closeCaseWindowBtn = document.getElementById('closeCaseWindowBtn');
 const closeInventoryBtn = document.getElementById('closeInventoryBtn');
+const statusOnline = document.getElementById('statusOnline');
+const statusSessionEv = document.getElementById('statusSessionEv');
+const statusLastRare = document.getElementById('statusLastRare');
 
 let selectedCaseId = CASES[0]?.id ?? null;
 
@@ -178,57 +181,69 @@ async function openSelectedCase() {
     return;
   }
 
-  recordOpenAttempt();
-  const result = await openCase(selectedCaseId, null);
-  result.caseName = caseData.name;
-  recordOpenResult(result, caseData.name);
-  selectedCaseName.textContent = caseData.name;
-  openBtn.disabled = true;
-  openBtn.textContent = 'Opening…';
-  // Swap preview → spinner with a brief fade so the reel doesn't pop in instantly.
-  showSpinnerState();
-  await new Promise((r) => setTimeout(r, 220));
-  await renderSpinner(spinnerContainer, caseData, result, {});
-  await new Promise((r) => setTimeout(r, 650));
-  renderResultModal(resultModal, result, {
-    // Store mutations emit CustomEvents that re-render inventory/progress;
-    // don't manually call render* here or you get a double render.
-    onKeep: () => {
-      addInventoryItem(result);
-      resultModal.classList.add('hidden');
-      showPreviewState(caseData);
-      showToast(`Kept: ${result.item.name}`, 'success');
-    },
-    onSell: (_result, salePrice) => {
-      earn(salePrice, 'instant_sell');
-      resultModal.classList.add('hidden');
-      showPreviewState(caseData);
-      showToast(`Sold for €${salePrice.toFixed(2)}`, 'success');
-    },
-  });
+  let committed = false;
+  try {
+    recordOpenAttempt();
+    const result = await openCase(selectedCaseId, null);
+    result.caseName = caseData.name;
+    selectedCaseName.textContent = caseData.name;
+    openBtn.disabled = true;
+    openBtn.textContent = 'Opening…';
+    // Swap preview → spinner with a brief fade so the reel doesn't pop in instantly.
+    showSpinnerState();
+    await new Promise((r) => setTimeout(r, 220));
+    await renderSpinner(spinnerContainer, caseData, result, {});
+    await new Promise((r) => setTimeout(r, 650));
+    renderResultModal(resultModal, result, {
+      // Store mutations emit CustomEvents that re-render inventory/progress;
+      // don't manually call render* here or you get a double render.
+      onKeep: () => {
+        addInventoryItem(result);
+        resultModal.classList.add('hidden');
+        showPreviewState(caseData);
+        showToast(`Kept: ${result.item.name}`, 'success');
+      },
+      onSell: (_result, salePrice) => {
+        earn(salePrice, 'instant_sell');
+        resultModal.classList.add('hidden');
+        showPreviewState(caseData);
+        showToast(`Sold for €${salePrice.toFixed(2)}`, 'success');
+      },
+    });
 
-  const xpResult = addXp(50);
-  if (xpResult?.leveledUp) {
-    showToast(`Level ${xpResult.newLevel} reached!`, 'success');
-    for (const r of xpResult.rewardsGranted ?? []) {
-      showToast(`Milestone bonus: +€${r.coins.toFixed(2)} (level ${r.level})`, 'success');
+    committed = true;
+    recordOpenResult(result, caseData.name);
+
+    const xpResult = addXp(50);
+    if (xpResult?.leveledUp) {
+      showToast(`Level ${xpResult.newLevel} reached!`, 'success');
+      for (const r of xpResult.rewardsGranted ?? []) {
+        showToast(`Milestone bonus: +€${r.coins.toFixed(2)} (level ${r.level})`, 'success');
+      }
     }
+    recordOpen();
+    const completed = recordCaseOpen({ caseId: caseData.id, rarity: result.item.rarity });
+    for (const mission of completed) {
+      showToast(`Mission complete: ${mission.label} (+€${mission.reward.coins.toFixed(2)}, +${mission.reward.xp} XP)`, 'success');
+    }
+    play(result.statTrak ? 'legendary' : 'reveal');
+    track('case_opened', {
+      caseId: selectedCaseId,
+      rarity: result.item.rarity,
+      wear: result.wear,
+      float: result.float,
+      statTrak: result.statTrak,
+      sessionOpenCount: getSessionCount(),
+    });
+    renderProgress();
+  } catch (error) {
+    if (!committed) {
+      earn(price, 'open_case_refund');
+      showToast('Open failed. Balance refunded. Please try again.', 'warning');
+      showPreviewState(caseData);
+    }
+    console.error('Case open failed', error);
   }
-  recordOpen();
-  const completed = recordCaseOpen({ caseId: caseData.id, rarity: result.item.rarity });
-  for (const mission of completed) {
-    showToast(`Mission complete: ${mission.label} (+€${mission.reward.coins.toFixed(2)}, +${mission.reward.xp} XP)`, 'success');
-  }
-  play(result.statTrak ? 'legendary' : 'reveal');
-  track('case_opened', {
-    caseId: selectedCaseId,
-    rarity: result.item.rarity,
-    wear: result.wear,
-    float: result.float,
-    statTrak: result.statTrak,
-    sessionOpenCount: getSessionCount(),
-  });
-  renderProgress();
 }
 
 function renderInventoryPanel() {
@@ -309,6 +324,28 @@ function renderProgress() {
 function renderStats() {
   totalOpenedLabel.textContent = `Opened: ${getSessionCount()}`;
   const best = getBestDrop({ sinceMs: 7 * 24 * 60 * 60 * 1000 });
+  const recentRare = getRecent(40).find((entry) =>
+    ['classified', 'covert', 'extraordinary'].includes(entry.rarity),
+  );
+
+  if (statusOnline) {
+    statusOnline.textContent = `Online feed · ${CASES.length} cases`; 
+    statusOnline.classList.add('is-live');
+  }
+
+  if (statusSessionEv) {
+    statusSessionEv.textContent = `€${getBalance().toFixed(2)} balance`;
+  }
+
+  if (statusLastRare) {
+    statusLastRare.textContent = recentRare
+      ? `${recentRare.itemName} (${recentRare.rarity})`
+      : 'No rare drop yet';
+    statusLastRare.title = recentRare
+      ? `${recentRare.caseName} · ${recentRare.wear ?? ''}`
+      : '';
+  }
+
   if (best) {
     bestDropLabel.textContent = `Best (7d): ${best.itemName} (€${best.basePrice.toFixed(2)})`;
     bestDropLabel.title = `${best.caseName} · ${best.wear ?? ''}`;

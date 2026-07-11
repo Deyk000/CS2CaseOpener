@@ -45,8 +45,9 @@ export function renderTradeUpPanel(container, items, handlers = {}) {
 
   const eligible = items.filter((i) => ELIGIBLE_RARITIES.includes(i.rarity));
   const ofRarity = eligible.filter((i) => i.rarity === state.rarity);
+  const ofRarityByUid = new Map(ofRarity.map((i) => [i.uid, i]));
   const selectedItems = [...state.selected]
-    .map((uid) => ofRarity.find((i) => i.uid === uid))
+    .map((uid) => ofRarityByUid.get(uid))
     .filter(Boolean);
 
   // Selection might be stale (sold items, swapped rarity). Trim.
@@ -165,18 +166,22 @@ export function renderTradeUpPanel(container, items, handlers = {}) {
     </div>
   `;
 
-  // Wire interactions.
-  container.querySelectorAll('.trade-up-tab').forEach((tab) => {
-    tab.addEventListener('click', () => {
+  // Wire interactions with one delegated click handler to reduce listener churn.
+  container.onclick = (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+
+    const tab = target.closest('.trade-up-tab');
+    if (tab) {
       if (tab.disabled) return;
       state.rarity = tab.dataset.rarity;
       state.selected.clear();
       renderTradeUpPanel(container, items, handlers);
-    });
-  });
+      return;
+    }
 
-  container.querySelectorAll('.trade-up-pool-item').forEach((card) => {
-    card.addEventListener('click', () => {
+    const card = target.closest('.trade-up-pool-item');
+    if (card) {
       const uid = card.dataset.uid;
       if (state.selected.has(uid)) {
         state.selected.delete(uid);
@@ -184,17 +189,21 @@ export function renderTradeUpPanel(container, items, handlers = {}) {
         state.selected.add(uid);
       }
       renderTradeUpPanel(container, items, handlers);
-    });
-  });
+      return;
+    }
 
-  container.querySelector('[data-action="clear"]')?.addEventListener('click', () => {
-    state.selected.clear();
-    renderTradeUpPanel(container, items, handlers);
-  });
+    const clearBtn = target.closest('[data-action="clear"]');
+    if (clearBtn) {
+      state.selected.clear();
+      renderTradeUpPanel(container, items, handlers);
+      return;
+    }
 
-  container.querySelector('[data-action="forge"]')?.addEventListener('click', () => {
+    const forgeBtn = target.closest('[data-action="forge"]');
+    if (!forgeBtn) return;
     if (state.selected.size !== 10) return;
-    const chosen = [...state.selected].map((uid) => ofRarity.find((i) => i.uid === uid)).filter(Boolean);
+
+    const chosen = [...state.selected].map((uid) => ofRarityByUid.get(uid)).filter(Boolean);
     const validation = validateTradeUp(chosen);
     if (!validation.valid) {
       handlers.onError?.(validation.reason);
@@ -203,5 +212,5 @@ export function renderTradeUpPanel(container, items, handlers = {}) {
     const tradeUp = executeTradeUp(chosen);
     state.selected.clear();
     handlers.onComplete?.(tradeUp, chosen);
-  });
+  };
 }

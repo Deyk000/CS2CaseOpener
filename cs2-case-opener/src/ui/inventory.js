@@ -1,5 +1,6 @@
 import { formatFloat } from '../utils/format.js';
 import { computeSalePrice } from '../store/inventory.js';
+import { track } from '../utils/analytics.js';
 
 const RARITY_COLOR = {
   consumer: '#b0c3d9',
@@ -31,6 +32,11 @@ export const SORT_OPTIONS = [
   { id: 'name', label: 'Name (A → Z)' },
   { id: 'float_asc', label: 'Float (low → high)' },
 ];
+
+const SEARCH_DEBOUNCE_MS = 100;
+const VISIBLE_STEP = 120;
+const INVENTORY_RENDER_BUDGET_MS = 16;
+const INVENTORY_RENDER_TRACK_MIN_ITEMS = 200;
 
 function sortItems(items, sortId) {
   const copy = [...items];
@@ -69,20 +75,54 @@ function formatPrice(value) {
 let currentSort = 'recent';
 let currentSearch = '';
 let currentRarityFilter = 'all';
+let currentVisibleCount = VISIBLE_STEP;
+let searchDebounceTimer = null;
 
-function applyFilters(items) {
-  const q = currentSearch.trim().toLowerCase();
-  return items.filter((item) => {
-    if (currentRarityFilter !== 'all' && item.rarity !== currentRarityFilter) return false;
+export function buildInventoryViewModel(items, options = {}) {
+  const search = String(options.search ?? currentSearch);
+  const rarityFilter = String(options.rarityFilter ?? currentRarityFilter);
+  const sort = String(options.sort ?? currentSort);
+  const visibleCount = Number(options.visibleCount ?? currentVisibleCount);
+
+  const totalValue = items.reduce((sum, item) => sum + computeSalePrice(item.basePrice), 0);
+  const q = search.trim().toLowerCase();
+  const filtered = items.filter((item) => {
+    if (rarityFilter !== 'all' && item.rarity !== rarityFilter) return false;
     if (q && !`${item.name} ${item.weapon ?? ''} ${item.finish ?? ''}`.toLowerCase().includes(q)) return false;
     return true;
   });
+  const sorted = sortItems(filtered, sort);
+  const visible = sorted.slice(0, visibleCount);
+
+  return {
+    totalValue,
+    filtered,
+    sorted,
+    visible,
+    canShowMore: sorted.length > visible.length,
+  };
 }
 
 export function renderInventory(container, items, handlers = {}) {
-  const totalValue = items.reduce((sum, item) => sum + computeSalePrice(item.basePrice), 0);
-  const filtered = applyFilters(items);
-  const sorted = sortItems(filtered, currentSort);
+  const renderStart = typeof performance !== 'undefined' ? performance.now() : 0;
+  const { totalValue, sorted, visible, canShowMore } = buildInventoryViewModel(items, {
+    search: currentSearch,
+    rarityFilter: currentRarityFilter,
+    sort: currentSort,
+    visibleCount: currentVisibleCount,
+  });
+
+  const renderDuration = typeof performance !== 'undefined' ? performance.now() - renderStart : 0;
+  if (items.length >= INVENTORY_RENDER_TRACK_MIN_ITEMS && renderDuration > INVENTORY_RENDER_BUDGET_MS) {
+    track('inventory_render_slow', {
+      durationMs: Number(renderDuration.toFixed(2)),
+      itemCount: items.length,
+      visibleCount: visible.length,
+      filteredCount: sorted.length,
+      sort: currentSort,
+      queryLength: currentSearch.length,
+    });
+  }
 
   container.innerHTML = `
     <div class="inventory-toolbar">
@@ -113,48 +153,70 @@ export function renderInventory(container, items, handlers = {}) {
       ? '<p class="inventory-empty">Your inventory is empty. Open some cases!</p>'
       : sorted.length === 0
         ? '<p class="inventory-empty">No items match the current filter.</p>'
-        : `<div class="inventory-list">${sorted.map(renderCard).join('')}</div>`}
+        : `
+          <div class="inventory-list">${visible.map(renderCard).join('')}</div>
+          ${canShowMore
+            ? `<div class="inventory-show-more-wrap"><button type="button" class="open-btn ghost inventory-show-more" data-action="show-more">Show more (${sorted.length - visible.length} left)</button></div>`
+            : ''}
+        `}
   `;
 
-  container.querySelector('[data-action="sort"]')?.addEventListener('change', (event) => {
-    currentSort = event.target.value;
-    renderInventory(container, items, handlers);
-  });
-
-  const searchInput = container.querySelector('[data-action="search"]');
-  if (searchInput) {
-    searchInput.addEventListener('input', (event) => {
-      currentSearch = event.target.value;
+  container.onchange = (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (target.matches('[data-action="sort"]')) {
+      currentSort = target.value;
+      currentVisibleCount = VISIBLE_STEP;
       renderInventory(container, items, handlers);
-      // Restore focus + caret to the new input.
-      const fresh = container.querySelector('[data-action="search"]');
-      if (fresh) {
-        fresh.focus();
-        const v = fresh.value;
-        fresh.setSelectionRange(v.length, v.length);
-      }
-    });
-  }
+    }
+  };
 
-  container.querySelectorAll('.rarity-chip').forEach((chip) => {
-    chip.addEventListener('click', () => {
+  container.oninput = (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (!target.matches('[data-action="search"]')) return;
+
+    const nextValue = target.value;
+    if (searchDebounceTimer) {
+      clearTimeout(searchDebounceTimer);
+    }
+    searchDebounceTimer = setTimeout(() => {
+      currentSearch = nextValue;
+      currentVisibleCount = VISIBLE_STEP;
+      renderInventory(container, items, handlers);
+    }, SEARCH_DEBOUNCE_MS);
+  };
+
+  container.onclick = (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+
+    const sellBtn = target.closest('[data-action="sell"]');
+    if (sellBtn) {
+      handlers.onSell?.(sellBtn.dataset.uid);
+      return;
+    }
+
+    const showMoreBtn = target.closest('[data-action="show-more"]');
+    if (showMoreBtn) {
+      currentVisibleCount += VISIBLE_STEP;
+      renderInventory(container, items, handlers);
+      return;
+    }
+
+    const chip = target.closest('.rarity-chip');
+    if (chip) {
       currentRarityFilter = chip.dataset.rarity;
+      currentVisibleCount = VISIBLE_STEP;
       renderInventory(container, items, handlers);
-    });
-  });
+      return;
+    }
 
-  container.querySelectorAll('[data-action="sell"]').forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      event.stopPropagation();
-      handlers.onSell?.(btn.dataset.uid);
-    });
-  });
-
-  container.querySelectorAll('.inventory-item').forEach((card) => {
-    card.addEventListener('click', () => {
+    const card = target.closest('.inventory-item');
+    if (card) {
       handlers.onSelect?.(card.dataset.uid);
-    });
-  });
+    }
+  };
 }
 
 function renderCard(item) {
