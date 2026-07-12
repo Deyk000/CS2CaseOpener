@@ -52,35 +52,130 @@ export function openShowcaseModal(item, handlers = {}) {
   overlay.setAttribute('aria-describedby', 'showcase-sell');
   document.body.appendChild(overlay);
 
-  overlay.innerHTML = `
-    <div class="modal-content showcase-content">
-      <div class="rarity-banner" style="background:${rarityColor}22;color:${rarityColor}">${rarityLabel}</div>
-      <div class="result-layout">
-        <div class="result-art">
-          <img class="result-image" src="${item.image ?? ''}" alt="${item.name}" />
-        </div>
-        <div class="result-details">
-          <div id="showcase-name" class="result-name" style="color:${rarityColor}">${item.name}</div>
-          <div class="result-meta">${item.caseName || 'Inventory item'}</div>
-          <div class="result-wear"><strong>${item.wear ?? '—'}</strong></div>
-          <div class="result-float">Float: ${formatFloat(item.float)}</div>
-          <div class="result-float">Weapon: ${item.weapon ?? 'Unknown'}</div>
-          <div class="result-float">Finish: ${item.finish ?? 'Unknown'}</div>
-          <div class="result-float">Seed: ${String(item.seed ?? '').slice(0, 8) || '—'}</div>
-          <div class="result-float">Opened: ${formatDate(item.openedAt)}</div>
-          ${item.statTrak ? `<div class="result-stattrak">StatTrak™ · ${stCount} kills</div>` : ''}
-          <div id="showcase-sell" class="result-sell-price">
-            Sells for <strong>${formatPrice(salePrice)}</strong>
-          </div>
-          <div class="result-actions">
-            <button type="button" class="open-btn modal-btn" data-action="sell">Sell · ${formatPrice(salePrice)}</button>
-            <button type="button" class="open-btn ghost modal-btn" data-action="share">Copy share text</button>
-            <button type="button" class="open-btn ghost modal-btn" data-action="close">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  const content = document.createElement('div');
+  content.className = 'modal-content showcase-content';
+
+  const banner = document.createElement('div');
+  banner.className = 'rarity-banner';
+  banner.style.background = `${rarityColor}22`;
+  banner.style.color = rarityColor;
+  banner.textContent = rarityLabel;
+
+  const layout = document.createElement('div');
+  layout.className = 'result-layout';
+
+  const art = document.createElement('div');
+  art.className = 'result-art';
+  art.style.perspective = '1000px';
+
+  const img = document.createElement('img');
+  img.className = 'result-image';
+  img.src = item.image ?? '';
+  img.alt = item.name;
+  img.style.transition = 'transform 0.1s ease-out';
+  art.appendChild(img);
+
+  // Add 3D Tilt/Parallax Effect
+  art.addEventListener('mousemove', (e) => {
+    const rect = art.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((centerY - y) / centerY) * 15;
+    const rotateY = ((x - centerX) / centerX) * 15;
+    img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  });
+
+  art.addEventListener('mouseleave', () => {
+    img.style.transition = 'transform 0.3s ease';
+    img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+  });
+
+  const details = document.createElement('div');
+  details.className = 'result-details';
+
+  const name = document.createElement('div');
+  name.id = 'showcase-name';
+  name.className = 'result-name';
+  name.style.color = rarityColor;
+  name.textContent = item.name;
+
+  const meta = document.createElement('div');
+  meta.className = 'result-meta';
+  meta.textContent = item.caseName || 'Inventory item';
+
+  const wear = document.createElement('div');
+  wear.className = 'result-wear';
+  const wearStrong = document.createElement('strong');
+  wearStrong.textContent = item.wear ?? '—';
+  wear.appendChild(wearStrong);
+
+  const float = document.createElement('div');
+  float.className = 'result-float';
+  float.textContent = `Float: ${formatFloat(item.float)}`;
+
+  const weapon = document.createElement('div');
+  weapon.className = 'result-float';
+  weapon.textContent = `Weapon: ${item.weapon ?? 'Unknown'}`;
+
+  const finish = document.createElement('div');
+  finish.className = 'result-float';
+  finish.textContent = `Finish: ${item.finish ?? 'Unknown'}`;
+
+  const seed = document.createElement('div');
+  seed.className = 'result-float';
+  seed.textContent = `Seed: ${String(item.seed ?? '').slice(0, 8) || '—'}`;
+
+  const opened = document.createElement('div');
+  opened.className = 'result-float';
+  opened.textContent = `Opened: ${formatDate(item.openedAt)}`;
+
+  details.append(name, meta, wear, float, weapon, finish, seed, opened);
+
+  if (item.statTrak) {
+    const st = document.createElement('div');
+    st.className = 'result-stattrak';
+    st.textContent = `StatTrak™ · ${stCount} kills`;
+    details.appendChild(st);
+  }
+
+  const sell = document.createElement('div');
+  sell.id = 'showcase-sell';
+  sell.className = 'result-sell-price';
+  sell.textContent = 'Sells for ';
+  const sellStrong = document.createElement('strong');
+  sellStrong.textContent = formatPrice(salePrice);
+  sell.appendChild(sellStrong);
+  details.appendChild(sell);
+
+  const actions = document.createElement('div');
+  actions.className = 'result-actions';
+
+  const sellBtn = document.createElement('button');
+  sellBtn.type = 'button';
+  sellBtn.className = 'open-btn modal-btn';
+  sellBtn.dataset.action = 'sell';
+  sellBtn.textContent = `Sell · ${formatPrice(salePrice)}`;
+
+  const shareBtn = document.createElement('button');
+  shareBtn.type = 'button';
+  shareBtn.className = 'open-btn ghost modal-btn';
+  shareBtn.dataset.action = 'share';
+  shareBtn.textContent = 'Copy share text';
+
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'open-btn ghost modal-btn';
+  closeBtn.dataset.action = 'close';
+  closeBtn.textContent = 'Close';
+
+  actions.append(sellBtn, shareBtn, closeBtn);
+  details.appendChild(actions);
+
+  layout.append(art, details);
+  content.append(banner, layout);
+  overlay.appendChild(content);
 
   // Animate in.
   requestAnimationFrame(() => overlay.classList.add('is-open'));
@@ -104,24 +199,23 @@ export function openShowcaseModal(item, handlers = {}) {
   document.addEventListener('keydown', onKey);
 
   overlay.addEventListener('click', (event) => {
-    // Click on backdrop closes; clicks on the content shouldn't.
     if (event.target === overlay) {
       teardown();
       handlers.onClose?.();
     }
   });
 
-  overlay.querySelector('[data-action="sell"]')?.addEventListener('click', () => {
+  sellBtn.addEventListener('click', () => {
     teardown();
     handlers.onSell?.(item.uid, salePrice);
   });
 
-  overlay.querySelector('[data-action="close"]')?.addEventListener('click', () => {
+  closeBtn.addEventListener('click', () => {
     teardown();
     handlers.onClose?.();
   });
 
-  overlay.querySelector('[data-action="share"]')?.addEventListener('click', async (event) => {
+  shareBtn.addEventListener('click', async (event) => {
     const btn = event.currentTarget;
     const text = buildShareText(item, salePrice);
     try {
@@ -134,7 +228,6 @@ export function openShowcaseModal(item, handlers = {}) {
         btn.disabled = false;
       }, 1400);
     } catch {
-      // Clipboard API may be denied — fall back to a transient toast via the caller.
       handlers.onShareFailed?.(text);
     }
   });

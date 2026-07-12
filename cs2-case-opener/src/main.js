@@ -22,6 +22,7 @@ import { focusTrap } from './utils/focusTrap.js';
 import { renderProgressPanel } from './ui/progressPanel.js';
 import { show as showToast } from './ui/notifications.js';
 import { openCase } from './engine/caseEngine.js';
+import { initLiveDropFeed } from './ui/dropFeed.js';
 
 const caseGrid = document.getElementById('caseGrid');
 const progressPanel = document.getElementById('progressPanel');
@@ -52,6 +53,11 @@ let selectedCaseId = CASES[0]?.id ?? null;
 
 ensureGuestSession();
 await ensureAuthSession();
+
+const liveDropFeedContainer = document.getElementById('liveDropFeed');
+if (liveDropFeedContainer) {
+  initLiveDropFeed(liveDropFeedContainer);
+}
 
 const footer = document.createElement('footer');
 footer.className = 'site-footer shell';
@@ -183,6 +189,7 @@ async function openSelectedCase() {
 
   let committed = false;
   try {
+    updateDiagnosticsState('charging');
     recordOpenAttempt();
     const result = await openCase(selectedCaseId, null);
     result.caseName = caseData.name;
@@ -192,7 +199,9 @@ async function openSelectedCase() {
     // Swap preview → spinner with a brief fade so the reel doesn't pop in instantly.
     showSpinnerState();
     await new Promise((r) => setTimeout(r, 220));
+    updateDiagnosticsState('spinning');
     await renderSpinner(spinnerContainer, caseData, result, {});
+    updateDiagnosticsState('result-ready');
     await new Promise((r) => setTimeout(r, 650));
     renderResultModal(resultModal, result, {
       // Store mutations emit CustomEvents that re-render inventory/progress;
@@ -202,12 +211,14 @@ async function openSelectedCase() {
         resultModal.classList.add('hidden');
         showPreviewState(caseData);
         showToast(`Kept: ${result.item.name}`, 'success');
+        updateDiagnosticsState('idle');
       },
       onSell: (_result, salePrice) => {
         earn(salePrice, 'instant_sell');
         resultModal.classList.add('hidden');
         showPreviewState(caseData);
         showToast(`Sold for €${salePrice.toFixed(2)}`, 'success');
+        updateDiagnosticsState('idle');
       },
     });
 
@@ -241,6 +252,7 @@ async function openSelectedCase() {
       earn(price, 'open_case_refund');
       showToast('Open failed. Balance refunded. Please try again.', 'warning');
       showPreviewState(caseData);
+      updateDiagnosticsState('failed-refunded');
     }
     console.error('Case open failed', error);
   }
@@ -464,4 +476,48 @@ document.addEventListener('pointermove', (event) => {
 renderAll();
 showToast(`Welcome back. ${CASES.length} cases loaded.`, 'info');
 track('app_loaded', { cases: CASES.length, isGuest: true });
+
+// Diagnostics HUD Logic
+let fps = 0;
+let lastFpsUpdate = 0;
+let frameCount = 0;
+
+function tickFps(timestamp) {
+  if (!lastFpsUpdate) lastFpsUpdate = timestamp;
+  frameCount++;
+  if (timestamp - lastFpsUpdate >= 1000) {
+    fps = Math.round((frameCount * 1000) / (timestamp - lastFpsUpdate));
+    frameCount = 0;
+    lastFpsUpdate = timestamp;
+    const fpsEl = document.getElementById('diagFps');
+    if (fpsEl) fpsEl.textContent = fps;
+  }
+  requestAnimationFrame(tickFps);
+}
+requestAnimationFrame(tickFps);
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && e.code === 'KeyD') {
+    e.preventDefault();
+    const drawer = document.getElementById('diagnosticsDrawer');
+    if (drawer) {
+      drawer.classList.toggle('hidden');
+    }
+  }
+});
+
+function updateDiagnosticsState(stateName) {
+  const stateEl = document.getElementById('diagState');
+  if (stateEl) {
+    stateEl.textContent = stateName;
+  }
+}
+
+window.addEventListener('inventory:rendered', (e) => {
+  const renderEl = document.getElementById('diagRenderTime');
+  if (renderEl) {
+    renderEl.textContent = `inventory: ${e.detail.durationMs.toFixed(2)}ms`;
+  }
+});
+
 

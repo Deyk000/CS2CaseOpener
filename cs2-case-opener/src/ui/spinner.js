@@ -1,11 +1,4 @@
-// Roulette-style spinner.
-//
-// Correctness rule: the element that ends up centered under the gold indicator
-// MUST be the one whose item === openResult.item. We achieve that by:
-//   1. Putting the winning item at a known index in the reel array.
-//   2. After layout, asking the browser for the *actual* DOM rect of that
-//      element and the indicator, and computing the transform that aligns
-//      their centers — never re-deriving from "index * assumedWidth".
+import { play } from '../utils/sound.js';
 
 // Visual-only weighting for the reel fillers. Cosmetic — does NOT affect drop
 // odds (those live in rng.js). The roulette should look like it has lots of
@@ -52,50 +45,68 @@ export function renderSpinner(container, caseData, openResult, options = {}) {
   ];
   const landingIndex = prefixCount;
 
-  container.innerHTML = `
-    <div class="reel-container">
-      <div class="reel-indicator" aria-hidden="true"></div>
-      <div class="reel-fade reel-fade-left" aria-hidden="true"></div>
-      <div class="reel-fade reel-fade-right" aria-hidden="true"></div>
-      <div class="reel-overflow">
-        <div class="reel">
-          ${reelItems
-            .map(
-              (item, index) => `
-                <article class="reel-item${index === landingIndex ? ' is-winner' : ''}" data-index="${index}" data-rarity="${item.rarity}">
-                  <div class="reel-item-art">
-                    <img src="${item.image}" alt="${item.name}" loading="eager" />
-                  </div>
-                  <div class="reel-item-name">${item.name}</div>
-                </article>
-              `,
-            )
-            .join('')}
-        </div>
-      </div>
-    </div>
-  `;
+  container.textContent = '';
 
-  const reelContainer = container.querySelector('.reel-container');
-  const reel = container.querySelector('.reel');
-  const indicator = container.querySelector('.reel-indicator');
-  const winnerEl = container.querySelector(`.reel-item[data-index="${landingIndex}"]`);
+  const reelContainer = document.createElement('div');
+  reelContainer.className = 'reel-container';
+
+  const indicator = document.createElement('div');
+  indicator.className = 'reel-indicator';
+  indicator.setAttribute('aria-hidden', 'true');
+
+  const fadeLeft = document.createElement('div');
+  fadeLeft.className = 'reel-fade reel-fade-left';
+  fadeLeft.setAttribute('aria-hidden', 'true');
+
+  const fadeRight = document.createElement('div');
+  fadeRight.className = 'reel-fade reel-fade-right';
+  fadeRight.setAttribute('aria-hidden', 'true');
+
+  const reelOverflow = document.createElement('div');
+  reelOverflow.className = 'reel-overflow';
+
+  const reel = document.createElement('div');
+  reel.className = 'reel';
+
+  reelItems.forEach((item, index) => {
+    const article = document.createElement('article');
+    article.className = `reel-item${index === landingIndex ? ' is-winner' : ''}`;
+    article.dataset.index = index;
+    article.dataset.rarity = item.rarity;
+
+    const art = document.createElement('div');
+    art.className = 'reel-item-art';
+    const img = document.createElement('img');
+    img.src = item.image;
+    img.alt = item.name;
+    img.loading = 'eager';
+    art.appendChild(img);
+
+    const name = document.createElement('div');
+    name.className = 'reel-item-name';
+    name.textContent = item.name;
+
+    article.append(art, name);
+    reel.appendChild(article);
+  });
+
+  reelOverflow.appendChild(reel);
+  reelContainer.append(indicator, fadeLeft, fadeRight, reelOverflow);
+  container.appendChild(reelContainer);
+
+  const winnerEl = reel.querySelector(`.reel-item[data-index="${landingIndex}"]`);
 
   if (!reel || !winnerEl || !reelContainer || !indicator) {
     return Promise.resolve();
   }
 
   // Respect prefers-reduced-motion by shortening the spin, not skipping it.
-  // Seeing which skin won IS the whole point of the app; we just dial it down
-  // from a 5s physics-y reel to a quick ~1.2s ease.
   const reducedMotion = typeof window !== 'undefined'
     && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const effectiveDuration = reducedMotion ? 1200 : duration;
 
   if (options.skipAnimation === true) {
-    // Explicit opt-out (used by batch flows / tests): snap to the winner.
     requestAnimationFrame(() => {
-      const containerRect = reelContainer.getBoundingClientRect();
       const winnerRect = winnerEl.getBoundingClientRect();
       const indicatorRect = indicator.getBoundingClientRect();
       const delta = (winnerRect.left + winnerRect.width / 2) - (indicatorRect.left + indicatorRect.width / 2);
@@ -106,12 +117,9 @@ export function renderSpinner(container, caseData, openResult, options = {}) {
     return Promise.resolve();
   }
 
-  // Compute landing transform from real DOM measurements.
   function computeLanding() {
-    // Reset any prior transform so measurements are taken from the natural layout.
     reel.style.transition = 'none';
     reel.style.transform = 'translate3d(0, 0, 0)';
-    // Force reflow.
     void reel.offsetHeight;
 
     const containerRect = reelContainer.getBoundingClientRect();
@@ -120,25 +128,18 @@ export function renderSpinner(container, caseData, openResult, options = {}) {
 
     const winnerCenterX = winnerRect.left + winnerRect.width / 2;
     const indicatorCenterX = indicatorRect.left + indicatorRect.width / 2;
-
-    // Add a tiny per-spin jitter (±35% of slot width) so it doesn't feel
-    // mechanically perfect, but stays clearly inside the winning slot.
     const jitter = (Math.random() - 0.5) * winnerRect.width * 0.35;
-
-    // How far we need to shift the reel left so the winner sits under the indicator.
     const delta = winnerCenterX - indicatorCenterX + jitter;
     return { toX: -delta, fromX: Math.max(containerRect.width * 0.5, 240) };
   }
 
   return new Promise((resolve) => {
-    // Wait for the winner image to actually load so we measure final layout.
     const winnerImg = winnerEl.querySelector('img');
     const ready = winnerImg && !winnerImg.complete
       ? new Promise((r) => {
           const done = () => r();
           winnerImg.addEventListener('load', done, { once: true });
           winnerImg.addEventListener('error', done, { once: true });
-          // Hard cap in case the image takes forever.
           setTimeout(done, 600);
         })
       : Promise.resolve();
@@ -151,14 +152,62 @@ export function renderSpinner(container, caseData, openResult, options = {}) {
           reel.style.setProperty('--spin-from', `${fromX}px`);
           reel.style.setProperty('--spin-to', `${toX}px`);
           reel.style.setProperty('--spin-duration', `${effectiveDuration}ms`);
-          reel.classList.add('spinning');
+          
+          let lastCenteredIndex = -1;
+          let active = true;
 
-          // After animation: lock to the exact position and add a small settle bounce.
+          function trackTicks() {
+            if (!active) return;
+            const indicatorRect = indicator.getBoundingClientRect();
+            const indicatorCenter = indicatorRect.left + indicatorRect.width / 2;
+
+            const items = reel.querySelectorAll('.reel-item');
+            let currentCenteredIndex = -1;
+
+            for (let i = 0; i < items.length; i++) {
+              const rect = items[i].getBoundingClientRect();
+              if (indicatorCenter >= rect.left && indicatorCenter <= rect.right) {
+                currentCenteredIndex = i;
+                break;
+              }
+            }
+
+            if (currentCenteredIndex !== -1 && currentCenteredIndex !== lastCenteredIndex) {
+              lastCenteredIndex = currentCenteredIndex;
+              const itemEl = items[currentCenteredIndex];
+              const rarity = itemEl.dataset.rarity;
+
+              if (rarity === 'covert' || rarity === 'extraordinary') {
+                play('rare');
+                indicator.classList.add('near-win-flash');
+                setTimeout(() => indicator.classList.remove('near-win-flash'), 150);
+              } else {
+                play('tick');
+              }
+            }
+            requestAnimationFrame(trackTicks);
+          }
+
+          reel.classList.add('spinning');
+          requestAnimationFrame(trackTicks);
+
           window.setTimeout(() => {
+            active = false;
             reel.classList.remove('spinning');
             reel.style.transition = 'transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1)';
             reel.style.transform = `translate3d(${toX}px, 0, 0)`;
             winnerEl.classList.add('reveal');
+            
+            // Play stinger sound depending on rarity
+            const rarity = openResult.item.rarity;
+            if (rarity === 'extraordinary') {
+              play('legendary');
+            } else if (rarity === 'covert' || rarity === 'classified') {
+              play('reveal');
+            } else {
+              play('levelup');
+            }
+
             resolve();
           }, effectiveDuration);
         });

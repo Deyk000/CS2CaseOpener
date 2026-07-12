@@ -122,44 +122,114 @@ export function renderInventory(container, items, handlers = {}) {
       sort: currentSort,
       queryLength: currentSearch.length,
     });
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('inventory:rendered', { detail: { durationMs: renderDuration } }));
   }
 
-  container.innerHTML = `
-    <div class="inventory-toolbar">
-      <div class="inventory-stats">
-        <span>Total items: <strong>${items.length}</strong></span>
-        <span>Total value: <strong>${formatPrice(totalValue)}</strong></span>
-      </div>
-      <div class="inventory-toolbar-actions">
-        <label class="inventory-sort">
-          <span>Sort by</span>
-          <select data-action="sort">
-            ${SORT_OPTIONS.map((opt) => `<option value="${opt.id}"${opt.id === currentSort ? ' selected' : ''}>${opt.label}</option>`).join('')}
-          </select>
-        </label>
-      </div>
-    </div>
-    <div class="inventory-filters">
-      <input type="search" class="inventory-search" placeholder="Search by weapon, finish, or name…" data-action="search" value="${currentSearch.replace(/"/g, '&quot;')}" />
-      <div class="inventory-rarity-chips" role="group" aria-label="Filter by rarity">
-        ${['all', 'milspec', 'restricted', 'classified', 'covert', 'extraordinary'].map((r) => `
-          <button type="button" class="rarity-chip${currentRarityFilter === r ? ' active' : ''}" data-rarity="${r}" style="--rarity:${RARITY_COLOR[r] ?? '#888'}">
-            ${r === 'all' ? 'All' : (RARITY_LABEL[r] ?? r)}
-          </button>
-        `).join('')}
-      </div>
-    </div>
-    ${items.length === 0
-      ? '<p class="inventory-empty">Your inventory is empty. Open some cases!</p>'
-      : sorted.length === 0
-        ? '<p class="inventory-empty">No items match the current filter.</p>'
-        : `
-          <div class="inventory-list">${visible.map(renderCard).join('')}</div>
-          ${canShowMore
-            ? `<div class="inventory-show-more-wrap"><button type="button" class="open-btn ghost inventory-show-more" data-action="show-more">Show more (${sorted.length - visible.length} left)</button></div>`
-            : ''}
-        `}
-  `;
+  container.textContent = '';
+
+  const toolbar = document.createElement('div');
+  toolbar.className = 'inventory-toolbar';
+
+  const stats = document.createElement('div');
+  stats.className = 'inventory-stats';
+
+  const totalSpan = document.createElement('span');
+  totalSpan.textContent = 'Total items: ';
+  const totalStrong = document.createElement('strong');
+  totalStrong.textContent = items.length;
+  totalSpan.appendChild(totalStrong);
+
+  const valueSpan = document.createElement('span');
+  valueSpan.textContent = 'Total value: ';
+  const valueStrong = document.createElement('strong');
+  valueStrong.textContent = formatPrice(totalValue);
+  valueSpan.appendChild(valueStrong);
+
+  stats.append(totalSpan, valueSpan);
+
+  const actions = document.createElement('div');
+  actions.className = 'inventory-toolbar-actions';
+
+  const sortLabel = document.createElement('label');
+  sortLabel.className = 'inventory-sort';
+  const sortSpan = document.createElement('span');
+  sortSpan.textContent = 'Sort by';
+  const sortSelect = document.createElement('select');
+  sortSelect.dataset.action = 'sort';
+  SORT_OPTIONS.forEach((opt) => {
+    const option = document.createElement('option');
+    option.value = opt.id;
+    option.textContent = opt.label;
+    if (opt.id === currentSort) option.selected = true;
+    sortSelect.appendChild(option);
+  });
+  sortLabel.append(sortSpan, sortSelect);
+  actions.appendChild(sortLabel);
+  toolbar.append(stats, actions);
+
+  const filters = document.createElement('div');
+  filters.className = 'inventory-filters';
+
+  const searchInput = document.createElement('input');
+  searchInput.type = 'search';
+  searchInput.className = 'inventory-search';
+  searchInput.placeholder = 'Search by weapon, finish, or name…';
+  searchInput.dataset.action = 'search';
+  searchInput.value = currentSearch;
+
+  const chips = document.createElement('div');
+  chips.className = 'inventory-rarity-chips';
+  chips.setAttribute('role', 'group');
+  chips.setAttribute('aria-label', 'Filter by rarity');
+
+  ['all', 'milspec', 'restricted', 'classified', 'covert', 'extraordinary'].forEach((r) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `rarity-chip${currentRarityFilter === r ? ' active' : ''}`;
+    button.dataset.rarity = r;
+    button.style.setProperty('--rarity', RARITY_COLOR[r] ?? '#888');
+    button.textContent = r === 'all' ? 'All' : (RARITY_LABEL[r] ?? r);
+    chips.appendChild(button);
+  });
+
+  filters.append(searchInput, chips);
+  container.append(toolbar, filters);
+
+  if (items.length === 0) {
+    const p = document.createElement('p');
+    p.className = 'inventory-empty';
+    p.textContent = 'Your inventory is empty. Open some cases!';
+    container.appendChild(p);
+  } else if (sorted.length === 0) {
+    const p = document.createElement('p');
+    p.className = 'inventory-empty';
+    p.textContent = 'No items match the current filter.';
+    container.appendChild(p);
+  } else {
+    const list = document.createElement('div');
+    list.className = 'inventory-list';
+    const fragment = document.createDocumentFragment();
+    visible.forEach((item) => {
+      fragment.appendChild(renderCard(item));
+    });
+    list.appendChild(fragment);
+    container.appendChild(list);
+
+    if (canShowMore) {
+      const showMoreWrap = document.createElement('div');
+      showMoreWrap.className = 'inventory-show-more-wrap';
+
+      const showMoreBtn = document.createElement('button');
+      showMoreBtn.type = 'button';
+      showMoreBtn.className = 'open-btn ghost inventory-show-more';
+      showMoreBtn.dataset.action = 'show-more';
+      showMoreBtn.textContent = `Show more (${sorted.length - visible.length} left)`;
+      
+      showMoreWrap.appendChild(showMoreBtn);
+      container.appendChild(showMoreWrap);
+    }
+  }
 
   container.onchange = (event) => {
     const target = event.target;
@@ -223,18 +293,54 @@ function renderCard(item) {
   const color = RARITY_COLOR[item.rarity] ?? '#b0c3d9';
   const salePrice = computeSalePrice(item.basePrice);
   const stCount = Number(item.statTrakCount) || 0;
-  return `
-    <article class="inventory-item" data-uid="${item.uid}" data-rarity="${item.rarity}" style="--rarity:${color}">
-      ${item.statTrak ? `<span class="stattrak-badge" title="StatTrak™ kills">ST · ${stCount}</span>` : ''}
-      <div class="inventory-item-art">
-        <img src="${item.image ?? ''}" alt="${item.name}" loading="lazy" />
-      </div>
-      <div class="inventory-item-name" title="${item.name}">${item.name}</div>
-      <div class="inventory-item-wear">${item.wear} · ${formatFloat(item.float)}</div>
-      <div class="inventory-item-footer">
-        <span class="inventory-item-price">${formatPrice(salePrice)}</span>
-        <button type="button" class="inventory-sell-btn" data-action="sell" data-uid="${item.uid}">Sell</button>
-      </div>
-    </article>
-  `;
+
+  const article = document.createElement('article');
+  article.className = 'inventory-item';
+  article.dataset.uid = item.uid;
+  article.dataset.rarity = item.rarity;
+  article.style.setProperty('--rarity', color);
+
+  if (item.statTrak) {
+    const badge = document.createElement('span');
+    badge.className = 'stattrak-badge';
+    badge.title = 'StatTrak™ kills';
+    badge.textContent = `ST · ${stCount}`;
+    article.appendChild(badge);
+  }
+
+  const art = document.createElement('div');
+  art.className = 'inventory-item-art';
+  const img = document.createElement('img');
+  img.src = item.image ?? '';
+  img.alt = item.name;
+  img.loading = 'lazy';
+  art.appendChild(img);
+
+  const name = document.createElement('div');
+  name.className = 'inventory-item-name';
+  name.title = item.name;
+  name.textContent = item.name;
+
+  const wear = document.createElement('div');
+  wear.className = 'inventory-item-wear';
+  wear.textContent = `${item.wear} · ${formatFloat(item.float)}`;
+
+  const footer = document.createElement('div');
+  footer.className = 'inventory-item-footer';
+
+  const priceSpan = document.createElement('span');
+  priceSpan.className = 'inventory-item-price';
+  priceSpan.textContent = formatPrice(salePrice);
+
+  const sellBtn = document.createElement('button');
+  sellBtn.type = 'button';
+  sellBtn.className = 'inventory-sell-btn';
+  sellBtn.dataset.action = 'sell';
+  sellBtn.dataset.uid = item.uid;
+  sellBtn.textContent = 'Sell';
+
+  footer.append(priceSpan, sellBtn);
+  article.append(art, name, wear, footer);
+
+  return article;
 }

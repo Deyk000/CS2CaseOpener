@@ -23,33 +23,107 @@ export function renderResultModal(container, result, actions = {}) {
   const rarityLabel = String(result.item.rarity).toUpperCase();
   const salePrice = computeSalePrice(result.item.basePrice);
 
-  container.innerHTML = `
-    <div class="modal-content result-modal-content" role="dialog" aria-modal="true" aria-labelledby="result-name" aria-describedby="result-sell">
-      <div class="rarity-banner" style="background:${rarityColor}22;color:${rarityColor}">${rarityLabel}</div>
-      <div class="result-layout">
-        <div class="result-art">
-          <img class="result-image" src="${result.item.image}" alt="${result.item.name}" />
-        </div>
-        <div class="result-details">
-          <div id="result-name" class="result-name" style="color:${rarityColor}">${result.item.name}</div>
-          <div class="result-meta">${result.caseName ?? 'Opened Case'}</div>
-          <div class="result-wear"><strong>${result.wear}</strong></div>
-          <div class="result-float">Float: ${formatFloat(result.float)}</div>
-          <div class="result-float">Weapon: ${result.item.weapon ?? 'Unknown'}</div>
-          <div class="result-float">Finish: ${result.item.finish ?? 'Unknown'}</div>
-          <div class="result-float">Seed: ${String(result.seed).slice(0, 8)}</div>
-          ${result.statTrak ? '<div class="result-stattrak">StatTrak™</div>' : ''}
-          <div id="result-sell" class="result-sell-price">
-            Sells for <strong>${formatPrice(salePrice)}</strong>
-          </div>
-          <div class="result-actions">
-            <button type="button" class="open-btn modal-btn" data-action="keep">Keep</button>
-            <button type="button" class="open-btn ghost modal-btn" data-action="sell">Sell · ${formatPrice(salePrice)}</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  container.textContent = '';
+  
+  const content = document.createElement('div');
+  content.className = 'modal-content result-modal-content';
+  content.setAttribute('role', 'dialog');
+  content.setAttribute('aria-modal', 'true');
+  content.setAttribute('aria-labelledby', 'result-name');
+  content.setAttribute('aria-describedby', 'result-sell');
+
+  const banner = document.createElement('div');
+  banner.className = 'rarity-banner';
+  banner.style.background = `${rarityColor}22`;
+  banner.style.color = rarityColor;
+  banner.textContent = rarityLabel;
+
+  const layout = document.createElement('div');
+  layout.className = 'result-layout';
+
+  const art = document.createElement('div');
+  art.className = 'result-art';
+
+  const img = document.createElement('img');
+  img.className = 'result-image';
+  img.src = result.item.image;
+  img.alt = result.item.name;
+  art.appendChild(img);
+
+  const details = document.createElement('div');
+  details.className = 'result-details';
+
+  const name = document.createElement('div');
+  name.id = 'result-name';
+  name.className = 'result-name';
+  name.style.color = rarityColor;
+  name.textContent = result.item.name;
+
+  const meta = document.createElement('div');
+  meta.className = 'result-meta';
+  meta.textContent = result.caseName ?? 'Opened Case';
+
+  const wear = document.createElement('div');
+  wear.className = 'result-wear';
+  const wearStrong = document.createElement('strong');
+  wearStrong.textContent = result.wear;
+  wear.appendChild(wearStrong);
+
+  const float = document.createElement('div');
+  float.className = 'result-float';
+  float.textContent = `Float: ${formatFloat(result.float)}`;
+
+  const weapon = document.createElement('div');
+  weapon.className = 'result-float';
+  weapon.textContent = `Weapon: ${result.item.weapon ?? 'Unknown'}`;
+
+  const finish = document.createElement('div');
+  finish.className = 'result-float';
+  finish.textContent = `Finish: ${result.item.finish ?? 'Unknown'}`;
+
+  const seed = document.createElement('div');
+  seed.className = 'result-float';
+  seed.textContent = `Seed: ${String(result.seed).slice(0, 8)}`;
+
+  details.append(name, meta, wear, float, weapon, finish, seed);
+
+  if (result.statTrak) {
+    const st = document.createElement('div');
+    st.className = 'result-stattrak';
+    st.textContent = 'StatTrak™';
+    details.appendChild(st);
+  }
+
+  const sell = document.createElement('div');
+  sell.id = 'result-sell';
+  sell.className = 'result-sell-price';
+  sell.textContent = 'Sells for ';
+  const sellStrong = document.createElement('strong');
+  sellStrong.textContent = formatPrice(salePrice);
+  sell.appendChild(sellStrong);
+  details.appendChild(sell);
+
+  const actionsDiv = document.createElement('div');
+  actionsDiv.className = 'result-actions';
+
+  const keepBtn = document.createElement('button');
+  keepBtn.type = 'button';
+  keepBtn.className = 'open-btn modal-btn';
+  keepBtn.dataset.action = 'keep';
+  keepBtn.textContent = 'Keep';
+
+  const sellBtn = document.createElement('button');
+  sellBtn.type = 'button';
+  sellBtn.className = 'open-btn ghost modal-btn';
+  sellBtn.dataset.action = 'sell';
+  sellBtn.textContent = `Sell · ${formatPrice(salePrice)}`;
+
+  actionsDiv.append(keepBtn, sellBtn);
+  details.appendChild(actionsDiv);
+
+  layout.append(art, details);
+  content.append(banner, layout);
+  container.appendChild(content);
 
   container.classList.remove('hidden');
 

@@ -72,6 +72,8 @@
         <strong id="statusLastRare" class="tactical-value">No rare drop yet</strong>
       </div>
     </section>
+    
+    <section id="liveDropFeed" class="shell live-drop-feed" aria-label="Live player drops"></section>
 
     <main class="shell home-grid">
       <section class="panel">
@@ -143,6 +145,13 @@
     </section>
 
     <div id="resultModal" class="result-modal hidden" role="dialog" aria-modal="true" aria-label="Drop Result"></div>
+
+    <div id="diagnosticsDrawer" class="diagnostics-drawer hidden">
+      <h3>Diagnostics HUD</h3>
+      <div class="diag-row"><span>FPS:</span> <strong id="diagFps">--</strong></div>
+      <div class="diag-row"><span>State:</span> <strong id="diagState">idle</strong></div>
+      <div class="diag-row"><span>Last Render:</span> <strong id="diagRenderTime">-- ms</strong></div>
+    </div>
 
     <script type="module" src="./src/main.js"></script>
   </body>
